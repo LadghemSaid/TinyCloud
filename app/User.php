@@ -27,4 +27,21 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+
+    public function chansons() {
+        return $this->hasMany('App\Chanson', 'utilisateur_id');
+        // SELECT * from chason where utilisateur_id = $this->id
+    }
+
+
+    public function ilsMeSuivent() {
+        return $this->belongsToMany("App\User", "suit", "suivi_id", "suiveur_id");
+    }
+
+
+    public function jeLesSuit() {
+        return $this->belongsToMany("App\User", "suit", "suiveur_id", "suivi_id");
+    }
 }

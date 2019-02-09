@@ -11,23 +11,11 @@
 |
 */
 
-Route::Get('/', 'Moncontrolleur@index');
-
-Route::Get('/bonjour/{nom}', 'Moncontrolleur@bonjour');
-
-Route::Get('/test', 'Moncontrolleur@test');
-
-Route::Get('/personnes','Moncontrolleur@personnes');
-
-Route::Get('/personne/{id}', 'Moncontrolleur@personne')->where('id','[0-9]+');
-
-Route::Get('/films','Moncontrolleur@films');
-
-Route::Get('/film/{id}', 'Moncontrolleur@film')->where('id', '[0-9]+');
-
-
+Route::get('/', 'MonControleur@index');
+Route::get('/utilisateur/{id}', 'MonControleur@utilisateur')->where("id","[0-9]+");
+Route::get('/suivre/{id}', 'MonControleur@suivre')->where("id","[0-9]+")->middleware();
 
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+

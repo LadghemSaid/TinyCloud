@@ -1,6 +1,5 @@
-@extends('layout.app2')
+@extends('layouts.app')
 
 @section('content')
-    <h1>Page d'index !</h1>
-  
+    @include("_chansons");
 @endsection
