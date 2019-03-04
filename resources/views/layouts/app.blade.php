@@ -43,8 +43,13 @@
     <br/>
     @yield('content')
 </div>
+ <form id="search">
+    <input type="search" name="search" required placeholder="Votre recherche"/>
+    <input type="submit" />
+</form>
 <!-- Scripts -->
 <script src="{{ secure_asset('js/jquery.js') }}"></script>
 <script src="{{ secure_asset('js/app.js') }}"></script>
+<script src="{{ secure_asset('js/main.js') }}"></script>
 </body>
 </html>
