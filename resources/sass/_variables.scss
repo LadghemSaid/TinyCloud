@@ -1,20 +1,35 @@
 
-// Body
-$body-bg: #f8fafc;
+/*colors*/
+$purpleDark: #3D013C;
+$purple: #60487F;
+$purpleBlue:#7888BF;
+$blue:#68C2E5;
+$cyan:#4AF8FF;
 
-// Typography
-$font-family-sans-serif: "Nunito", sans-serif;
-$font-size-base: 0.9rem;
-$line-height-base: 1.6;
+$white:white;
+$lightGrey:rgb(209, 209, 209);
+$grey: rgb(155, 155, 155);
+$darkGrey: rgb(65, 65, 65);
+$dark: rgb(14, 14, 14);
 
-// Colors
-$blue: #3490dc;
-$indigo: #6574cd;
-$purple: #9561e2;
-$pink: #f66D9b;
-$red: #e3342f;
-$orange: #f6993f;
-$yellow: #ffed4a;
-$green: #38c172;
-$teal: #4dc0b5;
-$cyan: #6cb2eb;
+/*dimensions*/
+
+
+$gap:1rem;
+$mediumGap:1.5rem;
+$bigGap:2rem;
+
+$containerWidth:70%;
+
+/*text*/
+
+$p1: 1.5rem;
+$p2: 1.2rem;
+$p3: 0.8rem;
+
+$h1: 3rem;
+$h2: 2rem;
+$h3: 1.5rem;
+
+$font1:"Montserrat", Helvetica, sans-serif;
+$font2:'Oswald', sans-serif;

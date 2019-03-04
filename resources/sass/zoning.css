@@ -1,0 +1,47 @@
+/*colors*/
+/*dimensions*/
+/*text*/
+.padding {
+  padding: 1rem;
+}
+
+.mediumPadding {
+  padding: 1.5rem;
+}
+
+.bigPadding {
+  padding: 2rem;
+}
+
+.container {
+  width: 70%;
+}
+
+.sidebar {
+  background-color: #d1d1d1;
+  position: fixed;
+  top: 6vh;
+  width: 15%;
+  height: 88vh;
+}
+
+.sidebar-right {
+  z-index: 0.5;
+  right: 0px;
+}
+
+.header, .navbar {
+  background-color: #414141;
+  z-index: 1;
+}
+
+.header .navbar-nav .active > .nav-link, .navbar .navbar-nav .active > .nav-link {
+  color: #4AF8FF;
+}
+
+.footerFix {
+  z-index: 1;
+  background-color: #60487F;
+  height: 6vh;
+}
+/*# sourceMappingURL=zoning.css.map */

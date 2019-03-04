@@ -1,0 +1,60 @@
+@import 'variables';
+
+//padding
+
+.padding {
+    padding: $gap;
+}
+
+.mediumPadding {
+    padding: $mediumGap;
+}
+
+.bigPadding {
+    padding: $bigGap;
+}
+
+
+// Bootstrap 
+
+.container {
+    width: $containerWidth;
+}
+
+//Zones
+
+.main {
+    .footer {
+    }
+}
+
+.sidebar {
+background-color: $lightGrey;
+
+position:fixed;
+top:6vh;
+width: 15%;
+height: 88vh;
+}
+
+.sidebar-right {
+z-index: 0.5;
+
+right: 0px;
+
+}
+
+.header, .navbar {
+background-color: $darkGrey;
+z-index: 1;
+    .navbar-nav .active>.nav-link{
+        color:$cyan;
+    }
+}
+
+.footerFix {
+z-index: 1;
+
+background-color: $purple;
+height: 6vh;
+}

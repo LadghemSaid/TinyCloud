@@ -1,69 +1,7 @@
-@import url(https://fonts.googleapis.com/css?family=Montserrat|Oswald);@charset "UTF-8";
-
+@charset "UTF-8";
 /*colors*/
-
 /*dimensions*/
-
 /*text*/
-
-/*colors*/
-
-/*dimensions*/
-
-/*text*/
-
-.padding {
-  padding: 1rem;
-}
-
-.mediumPadding {
-  padding: 1.5rem;
-}
-
-.bigPadding {
-  padding: 2rem;
-}
-
-.container {
-  width: 70%;
-}
-
-.sidebar {
-  background-color: #d1d1d1;
-  position: fixed;
-  top: 6vh;
-  width: 15%;
-  height: 88vh;
-}
-
-.sidebar-right {
-  z-index: 0.5;
-  right: 0px;
-}
-
-.header,
-.navbar {
-  background-color: #414141;
-  z-index: 1;
-}
-
-.header .navbar-nav .active > .nav-link,
-.navbar .navbar-nav .active > .nav-link {
-  color: #4AF8FF;
-}
-
-.footerFix {
-  z-index: 1;
-  background-color: #60487F;
-  height: 6vh;
-}
-
-/*colors*/
-
-/*dimensions*/
-
-/*text*/
-
 div,
 p,
 a,
@@ -142,7 +80,6 @@ li {
 }
 
 /*font style*/
-
 .uppercase {
   text-transform: uppercase;
 }
@@ -156,7 +93,6 @@ li {
 }
 
 /*color*/
-
 .pDark {
   color: #0e0e0e;
 }
@@ -180,57 +116,4 @@ li {
 .pGrey:hover {
   color: #9b9b9b;
 }
-
-/*colors*/
-
-/*dimensions*/
-
-/*text*/
-
-.littleIcon {
-  font-size: 1rem;
-}
-
-.bigIcon {
-  font-size: 1.5rem;
-}
-
-.fatIcon {
-  font-size: 2rem;
-}
-
-/*colors*/
-
-/*dimensions*/
-
-/*text*/
-
-.form-control {
-  border-radius: 20px;
-}
-
-.btn {
-  border-radius: 20px;
-  transition: all 0.2s ease-in-out;
-}
-
-.btnPurple {
-  color: #60487F;
-  border-color: #60487F;
-}
-
-.btnPurple:hover {
-  color: white;
-  background-color: #60487F;
-}
-
-.btnCyan {
-  color: #4AF8FF;
-  border-color: #4AF8FF;
-}
-
-.btnCyan:hover {
-  color: #0e0e0e;
-  background-color: #4AF8FF;
-}
-
+/*# sourceMappingURL=text.css.map */

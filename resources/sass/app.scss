@@ -1,24 +1,18 @@
 
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Oswald');
 
 // Variables
-//@import 'variables';
+@import 'variables';
 
-// Bootstrap
-//@import '~bootstrap/scss/bootstrap';
+//zoning
+@import 'zoning';
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-}
+//textes
+@import 'text';
 
-$font-stack:    Helvetica, sans-serif;
-$primary-color: #333;
+//icones 
+@import 'icon';
 
-
-body {
-  font: 100% $font-stack;
-  color: $primary-color;
-  background-color:white;
-}
+// Composants : boutons, cartes ...
+@import 'components';

@@ -1,0 +1,115 @@
+@import 'variables';
+
+div,
+p,
+a,
+li {
+    /*Mettre du Montserrat à la place*/
+    font-family: $font1;
+}
+
+h1,
+h2,
+h3 {
+    font-family: $font2;
+}
+
+.h1 {
+    font-size: $h1;
+}
+
+.h2 {
+    font-size: $h2;
+}
+
+.h3 {
+    font-size: $h3;
+}
+
+p {
+    color: $white;
+    opacity: 80%;
+    font-size: $p3;
+}
+
+.p1 {
+    font-size: $p1;
+}
+
+.p2 {
+    font-size: $p2;
+}
+
+.p3 {
+    font-size: $p3;
+}
+
+
+i {
+    display: inline;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+a {
+    text-decoration: none;
+
+    :hover {
+        text-decoration: none;
+    }
+}
+
+ul {
+    display: inline-block;
+    list-style-type: none;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+}
+
+li {
+    list-style: none;
+}
+
+/*font style*/
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.light {
+    font-weight: lighter;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+/*color*/
+
+
+.pDark {
+    color: $dark;
+}
+
+.pDarkGrey {
+    color: $darkGrey;
+}
+
+.pWhite {
+    color: $white;
+}
+
+.pWhite:hover{
+    color: $white;
+}
+
+.pGrey {
+    color: $grey;
+}
+
+.pGrey:hover{
+    color: $grey;
+}
