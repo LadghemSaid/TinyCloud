@@ -45,6 +45,31 @@ class MonControleur extends Controller
         return view("recherche",['utilisateurs'=>$users, 'chansons'=>$chansons]);
 
     }
+    public function nouvelle(){
+      
+        return view("nouvelle");
+
+    }
+    public function Creer(Request $request){
+        if($request->hasFile("chanson") && $request->file("chanson")->isValid()){
+            $c = new Chanson();
+            $c->nom = $request->input("nom");
+            $c->style = $request->input("style");
+            $c->utilisateur_id = Auth::id();
+            
+            $c->fichier = $request->file("chanson")->store("public/chansons/" .Auth::id());
+            $ext = $request->file("chanson")->extension();
+           
+            if($ext =='mpga'){
+                //$request->file("chanson")->extension() = "mp3";
+            };
+            $c->fichier = str_replace("public/","storage/",$c->fichier);
+            $c->save();
+            
+        }
+        return redirect("/");
+
+    }
 
 
 

@@ -15,7 +15,9 @@ Route::get('/', 'MonControleur@index');
 Route::get('/utilisateur/{id}', 'MonControleur@utilisateur')->where("id","[0-9]+");
 Route::get('/suivre/{id}', 'MonControleur@suivre')->middleware('auth')->where("id","[0-9]+");
 Route::get('/recherche/{s}', 'MonControleur@recherche');
+Route::get('/nouvelle', 'MonControleur@nouvelle')->middleware('auth');
 
+Route::post('/creer', 'MonControleur@Creer')->middleware('auth');
 
 Auth::routes();
 

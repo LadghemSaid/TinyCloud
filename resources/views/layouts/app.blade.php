@@ -25,6 +25,7 @@
             <li><a href="{{ route('register') }}">Register</a></li>
             @else
                 <li> Bonjour {{ Auth::user()->name }}</li>
+                <li> <a href="/nouvelle">Ajouter une musique</a> </li>
                 <li><a href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                    document.getElementById('logout-form').submit();">
@@ -33,13 +34,13 @@
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     {{ csrf_field() }}
                 </form>
-                @endguest
+        @endguest
     </ul>
 </nav>
 <div id="example"></div>
 <div id="main">
     <audio id="audio" controls>
-        <source src=""/>
+        <source src="" type:"audio:mp3"/>
     </audio>
     <br/>
     @yield('content')
