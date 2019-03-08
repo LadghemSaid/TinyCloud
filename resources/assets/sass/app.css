@@ -3,9 +3,6 @@
 /*colors*/
 /*dimensions*/
 /*text*/
-/*colors*/
-/*dimensions*/
-/*text*/
 .padding {
   padding: 1rem;
 }
@@ -23,12 +20,21 @@
 }
 
 .sidebar {
+  background-color: #d1d1d1;
   position: fixed;
+  top: 6vh;
   width: 15%;
+  height: 88vh;
+}
+
+.sidebar-right {
+  z-index: 0.5;
+  right: 0px;
 }
 
 .header, .navbar {
   background-color: #414141;
+  z-index: 1;
 }
 
 .header .navbar-nav .active > .nav-link, .navbar .navbar-nav .active > .nav-link {
@@ -36,13 +42,54 @@
 }
 
 .footerFix {
-  background-color: #60487F;
+  z-index: 1;
+  background-color: red;
   height: 6vh;
 }
 
-/*colors*/
-/*dimensions*/
-/*text*/
+/*feed*/
+.feed .playlists {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.feed .playlists .card {
+  display: inline-block;
+  margin: 1rem 0 0 1rem;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  width: calc(100% * (1/3) - $gap -$gap);
+}
+
+.feed .sounds {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.feed .sounds .card {
+  display: inline-block;
+  margin: 1rem 0 0 1rem;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  width: calc(100% * (1/3) - $gap -$gap);
+}
+
+.feed .endFeed {
+  height: 6vh;
+}
+
 div,
 p,
 a,
@@ -158,9 +205,6 @@ li {
   color: #9b9b9b;
 }
 
-/*colors*/
-/*dimensions*/
-/*text*/
 .littleIcon {
   font-size: 1rem;
 }
@@ -173,9 +217,6 @@ li {
   font-size: 2rem;
 }
 
-/*colors*/
-/*dimensions*/
-/*text*/
 .form-control {
   border-radius: 20px;
 }

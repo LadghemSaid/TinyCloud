@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <!-- ajouté par elouan -->
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/icon/style.css">
+
+    <title>Tiny Cloud</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">TinyCloud</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btnCyan my-2 my-sm-0 btn-ci" type="submit">Search <span class="icon-search"></span></button>
+            </form>
+        </div>
+    </nav>
+
+    <!-- sidebar -->
+
+    <div class=" sidebar sidebar-left shadow">
+
+    </div>
+
+    <div class=" sidebar sidebar-right shadow">
+
+    </div>
+
+    <!-- main -->
+
+    <div class="main container">
+        <div class="row">
+            <div class="mainFixed">
+                <div class="log">
+                    
+                    <div class="login mainFixed-zone">
+                        <h1>Login</h1>
+                        <form>
+                            <div class="form-group">
+                                <label for="inputEmail">Email address</label>
+                                <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"
+                                    placeholder="Enter email">
+                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with
+                                    anyone else.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword">Password</label>
+                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                            </div>
+                            <button type="submit" class="btn btnPurple">Submit</button>
+                        </form>
+                    </div>
+                    <div class="register mainFixed-zone">
+                        <h1>Register</h1>
+                        <form>
+                            <div class="form-group">
+                                <label for="registerEmail1">Email address</label>
+                                <input type="email" class="form-control" id="registerEmail1"
+                                    placeholder="Enter email">
+                            </div>
+                            <div class="form-group">
+                                <label for="registerEmail2">Confirm Email address</label>
+                                <input type="email" class="form-control" id="registerEmail2" placeholder="Enter email">
+                            </div>
+                            <div class="form-group">
+                                <label for="registerPassword">Password</label>
+                                <input type="password" class="form-control" id="registerPassword" placeholder="Password">
+                            </div>
+                            <button type="submit" class="btn btnPurple">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <footer class="footerFix container-fluid fixed-bottom shadow-lg">
+        <div class="row">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 shadow-lg">
+                                <audio class="lecteur-son" controls data-titre="Groove" data-auteur="Auteur inconnu"
+                                    data-illustration="TR-153.jpg">
+                                    <source src="groove.mp3" type="audio/mp3">
+                                </audio>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js">
+    </script>
+    <script src="player.js"></script>
+
+
+</body>
+
+</html>

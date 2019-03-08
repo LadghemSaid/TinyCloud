@@ -1,0 +1,164 @@
+
+//padding
+
+.padding {
+    padding: $gap;
+}
+
+.mediumPadding {
+    padding: $mediumGap;
+}
+
+.bigPadding {
+    padding: $bigGap;
+}
+
+
+// Bootstrap 
+
+.container {
+    width: $containerWidth;
+    max-width: none;
+}
+
+//Zones
+
+.main {
+    &Fixed{
+        position: fixed;
+        height: 86vh;
+        top:0px;
+        left: $sidebarWidth;
+        right: $sidebarWidth;
+        bottom: $footerFixHeight;
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        &-zone{
+            margin-top: $bigGap;
+        }
+
+    }
+    .footer {
+        color: #000;
+    }
+}
+
+.sidebar {
+background-color: $purple;
+position:fixed;
+top: 0px;
+width: $sidebarWidth;
+height: 88vh;
+z-index: 0.5;
+
+    &-nav{
+        h1,h2,h3{
+            color: $cyan;
+        }
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    ul{
+        margin-top: $gap;
+    }
+    li{
+margin-top: $gap;
+        p,a{display: inline;}
+    }
+
+}
+
+.sidebar-right {
+
+right: 0px;
+
+}
+
+.header, .navbar {
+background-color: $darkGrey;
+z-index: 1;
+    .navbar-nav .active>.nav-link{
+        color:$cyan;
+    }
+}
+
+.footerFix {
+z-index: 1;
+
+background-color: $blue;
+height: $footerFixHeight;
+    .col-12{
+        padding: 0px;
+    }
+}
+
+/*feed*/
+
+.feed{
+    .playlists{
+        display: flex;
+        flex-direction: row;
+        .card{
+            position: relative;
+            display: inline-block;
+            margin: $gap 0 0 $gap;
+            flex-grow: 1;
+            max-width: 50%;
+            width: calc(100% * (1/3) - $gap -$gap);
+            &:after {
+                content: "";
+                display: block;
+                padding-bottom: 100%;
+              }
+              div:first-child{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+              }
+        }
+    }
+
+    .sounds{
+        display: flex;
+        flex-direction: row;
+        .card{
+            display: inline-block;
+            margin: $gap 0 0 $gap;
+            flex-grow: 1;
+            max-width: 50%;
+            width: calc(100% * (1/3) - $gap -$gap);
+            &:after {
+                content: "";
+                display: block;
+                padding-bottom: 100%;
+              }
+              div:first-child{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+              }
+        }
+    }
+    .endFeed{
+        height: 6vh;
+    }
+}
+
+/*login*/
+
+.login{
+
+}
+.register{
+
+}
+

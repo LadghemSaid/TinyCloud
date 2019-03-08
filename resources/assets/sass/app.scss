@@ -3,16 +3,16 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Oswald');
 
 // Variables
-@import 'variables';
+@import './commons/variables';
 
 //zoning
-@import 'zoning';
+@import './commons/_zoning';
 
 //textes
-@import 'text';
+@import './commons/text';
 
 //icones 
-@import 'icon';
+@import './elements/icon';
 
 // Composants : boutons, cartes ...
-@import 'components';
+@import './elements/components';

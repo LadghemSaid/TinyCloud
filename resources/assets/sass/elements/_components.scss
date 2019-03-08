@@ -1,0 +1,95 @@
+
+//forms
+
+.form-control {
+    border-radius: 20px;
+    box-shadow: $purple;
+    &:focus{
+        border-color: $purple;
+outline: 0;
+-webkit-box-shadow: inset 0 1px 1px $purple,0 0 8px $purple;
+box-shadow: inset 0 1px 1px $purple,0 0 8px $purple;
+    }
+}
+
+//boutons 
+
+.btn {
+    border-radius: 20px;
+    transition: all .2s ease-in-out;
+}
+
+.btnPurple {
+    color: $purple;
+    border-color: $purple;
+}
+.btnPurple:hover{
+    color: $white;
+    background-color: $purple;
+}
+
+.btnCyan {
+    color: $cyan;
+    border-color: $cyan;
+}
+.btnCyan:hover{
+    color: $dark;
+    background-color: $cyan;
+}
+
+// cards
+
+.card{
+    border-radius: 10px;
+    &-img-top{
+        border-radius: 10px;
+    }
+}
+
+// player 
+
+/* player son : les css */
+
+.wrapper-son {
+    position: relative;
+    background-color:rgba(255,255,255, 0.8);
+    padding:6px;
+    background-size: cover;
+    background-position: center center;
+    box-sizing: border-box;
+ }
+ .son-info {
+    font-size:$p3;
+    padding:6px;
+    color:#666;
+    display:flex;
+    flex-wrap: wrap;
+ }
+ .son-info .played, .son-info .duration {
+    width:50%;
+ }
+ .son-info .titre {
+    width:100%;
+    padding-top:4px;
+    text-align:center;
+    font-weight:bold;
+ }
+ .son-info .auteur {
+    font-weight:normal;
+    display:block;
+    padding-top:4px;
+ }
+ .son-info .duration {
+    text-align:right;
+ }
+ .timeline {
+    box-sizing: border-box;
+    background-color: $blue;
+    cursor:col-resize;
+ }
+ .bar-played {
+    height:100%;
+    width:0;
+    background-color:$cyan;
+    height:10px;
+ }

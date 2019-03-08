@@ -1,3 +1,7 @@
+$xs: 544px;
+$sm: 767px;
+$md: 990px;
+$lg: 1200px;
 
 /*colors*/
 $purpleDark: #3D013C;
@@ -20,12 +24,14 @@ $mediumGap:1.5rem;
 $bigGap:2rem;
 
 $containerWidth:70%;
+$sidebarWidth:15%;
+$footerFixHeight:14vh;
 
 /*text*/
 
 $p1: 1.5rem;
 $p2: 1.2rem;
-$p3: 0.8rem;
+$p3: 1rem;
 
 $h1: 3rem;
 $h2: 2rem;
@@ -33,3 +39,9 @@ $h3: 1.5rem;
 
 $font1:"Montserrat", Helvetica, sans-serif;
 $font2:'Oswald', sans-serif;
+
+/*icon*/
+
+$icon: 0.8rem;
+$mediumIcon:1.5rem;
+$bigIcon:3rem;
