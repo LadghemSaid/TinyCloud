@@ -38,6 +38,34 @@ class MonControleur extends Controller
         return back();
 
     }
+    public function AddToPlaylist($id){
+        $users = \App\User::with('roles')->get();
+        foreach ($users as $user) {
+            echo '<strong>' . $user->name . '<br></strong>';
+            foreach ($user->roles as $role) {
+            echo '<li>' . $role->name . '</li>';
+            }
+        }
+        
+        $users = \App\User::with('role_users.role', 'role_users.tags')->get();
+ 
+        foreach ($users as $user) {
+        echo '<strong>' . $user->name . '<br></strong>';
+        foreach ($user->role_users as $role_user) {
+        echo $role_user->role->name . ' :<br>';
+        foreach ($role_user->tags as $tag) {
+            echo '<li>' . $tag->name . '</li>';
+        }
+    }
+    echo '<br>';
+}
+        
+        die("ok");
+      
+         return view("playlist",['chansons'=>$users]);
+
+    }
+    
     public function recherche($s){
         $users = User::whereRaw("name LIKE CONCAT(?,'%')",[$s])->get();
 
@@ -50,6 +78,7 @@ class MonControleur extends Controller
         return view("nouvelle");
 
     }
+    
     public function Creer(Request $request){
         if($request->hasFile("chanson") && $request->file("chanson")->isValid()){
             $c = new Chanson();
