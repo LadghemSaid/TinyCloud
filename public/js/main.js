@@ -3,9 +3,9 @@ $(document).ready(function(){
         e.preventDefault();
         window.location.href = "/recherche/"+e.target.elements[0].value;
     });
-    
-    
-    
+
+
+
     $(".chanson").click(function(e){
         e.preventDefault();
         let audio =$("#audio");
@@ -16,6 +16,25 @@ $(document).ready(function(){
 
     });
 
+    $("#testajax").click(function(e){
+        e.preventDefault();
+
+        $.ajax({
+            type:"GET",
+            url:'/testajax',
+            data :{
+                login: 'Gilles',
+                mdp:'aud123',
+            },
+            success: function(data, textStatus,jqXHR){
+                $("#aremplir").html(data);
+            },
+            error: function(jqHXR, textStatus, errorThrown){
+
+            }
+
+        })
+    })
 
     toastr.options = {
         "closeButton": false,
@@ -35,11 +54,11 @@ $(document).ready(function(){
         "hideMethod": "fadeOut"
     }
 
-$('.like').on('click', function(event){
-    event.preventDefault();
-    var islike = event.target.previousElementSibling == null ;
-    console.log(islike);
-})
+    $('.like').on('click', function(event){
+        event.preventDefault();
+        var islike = event.target.previousElementSibling == null ;
+        console.log(islike);
+    })
 
 
 });

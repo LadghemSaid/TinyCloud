@@ -19,6 +19,7 @@ Route::get('/nouvelle', 'MonControleur@nouvelle')->middleware('auth');
 Route::get('/addtoplaylist/{id}', 'MonControleur@AddToPlaylist')->middleware('auth')->where("id","[0-9]+");
 
 Route::post('/creer', 'MonControleur@Creer')->middleware('auth');
+Route::get("/testajax","MonControleur@testajax");
 
 Auth::routes();
 
