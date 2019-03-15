@@ -18,5 +18,9 @@ Route::get('/recherche/{s}', 'MonControleur@recherche');
 
 
 Auth::routes();
-
+//elouan
+Route::get('test', function () {
+    $data = User::find();
+    return response()->json($data);
+});
 

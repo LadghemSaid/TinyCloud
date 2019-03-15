@@ -44,4 +44,17 @@ class User extends Authenticatable
     public function jeLesSuit() {
         return $this->belongsToMany("App\User", "suit", "suiveur_id", "suivi_id");
     }
+
+    //ajouté par elouan 
+    /**
+     * The channels the user receives notification broadcasts on.
+     *
+     * @return string
+     */
+    public function receivesBroadcastNotificationsOn()
+    {
+        return 'App.User.' . $this->id;
+    }
 }
+
+
