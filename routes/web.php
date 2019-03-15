@@ -18,6 +18,7 @@ Route::get('/recherche/{s}', 'MonControleur@recherche');
 Route::get('/nouvelle', 'MonControleur@nouvelle')->middleware('auth');
 Route::get('/addtoplaylist/{idp}/{idc}', 'MonControleur@AddToPlaylist')->middleware('auth');
 Route::get('/creerplaylistview', 'MonControleur@CreePlaylistview')->middleware('auth');
+Route::get('/playlistview', 'MonControleur@Playlistview')->middleware('auth');
 Route::get('/song/{id}', 'MonControleur@SongView')->where("id","[0-9]+");
 
 
@@ -26,9 +27,4 @@ Route::post('/creer', 'MonControleur@Creer')->middleware('auth');
 Route::get("/testajax","MonControleur@testajax");
 
 Auth::routes();
-//elouan
-Route::get('test', function () {
-    $data = User::find();
-    return response()->json($data);
-});
 

@@ -92,6 +92,21 @@ class MonControleur extends Controller
         return view("nouvelle");
 
     }
+    public function PlaylistView(){
+        $u = Auth::id();
+        $c = Chanson::find(1);
+        
+        //var_dump($c->playlist());
+        //die(1);
+        
+        
+        $playlist = Playlist::whereRaw("user_id LIKE CONCAT(?,'%')",[$u])->get();
+        //print_r($playlist);
+        //die('0');
+        
+        return view("playlist",['playlist' => $playlist]);
+
+    }
     public function SongView($id){
         $chansons = Chanson::find($id);
         return view("songview", ['chanson' => $chansons]);
