@@ -1,3 +1,4 @@
+
 @if(request()->ajax())
     @yield("content")
     @else
