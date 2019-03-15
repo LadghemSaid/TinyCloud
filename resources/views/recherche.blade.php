@@ -8,4 +8,9 @@
         </li>
     @endforeach
     </ul>
+
+    
+    <h3>Les chansons</h3>
+    @include("_chansons", ['chansons'=>$chansons])
+
 @endsection
