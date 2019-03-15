@@ -10,6 +10,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{asset('css/toastr.css')}}">
 </head>
 <body>
 <header>
@@ -43,7 +44,7 @@
 @endauth
 <div id="main">
     <audio id="audio" controls>
-        <source src="" type:"audio:mp3"/>
+        <source src="" type="audio:mp3"/>
     </audio>
     <br/>
     @yield('content')
@@ -53,8 +54,19 @@
     <input type="submit" />
 </form>
 <!-- Scripts -->
+
 <script src="{{ asset('js/jquery.js') }}"></script>
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/main.js') }}"></script>
+<script src="{{ asset('js/toastr.min.js') }}"></script>
+@if(Session::has('toastr'))
+    <script>
+        $(document).ready(function (){
+            toastr.{{Session::get('toastr')['statut']}}('{{Session::get('toastr')['message']}}');
+        });
+
+    </script>
+@endif
+
 </body>
 </html>

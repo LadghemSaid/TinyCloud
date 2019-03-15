@@ -5,6 +5,7 @@
         
         
         @auth
+
         <div class="dropdown">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Ajouter à ma playlist
@@ -15,6 +16,13 @@
           @endforeach
           </div>
         </div>
+
+        
+            <br>
+            <a href="#" class="like">like</a>
+            <br>
+            <a href="#" class="like">dislike</a>
+
         @endauth
         
         

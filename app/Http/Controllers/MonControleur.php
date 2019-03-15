@@ -44,11 +44,11 @@ class MonControleur extends Controller
     
     public function suivre($id){
         $utilisateur = User::find($id);
-        if(!$utilisateur){
-            return abort(404);
+        if( !$utilisateur){
+            return redirect ('/')->with('toastr',['statut'=>'error','message'=>'probleme']);
         }
         $utilisateur->ilsMeSuivent()->toggle(Auth::id());
-        return back();
+        return back()->with('toastr', ['statut' => 'success', 'message' => 'suivi modifié'] );
 
     }
     
