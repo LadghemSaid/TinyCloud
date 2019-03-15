@@ -118,6 +118,9 @@ class MonControleur extends Controller
         return redirect("/");
 
     }
+    public function testajax(){
+        return redirect('/recherche/ut');
+    }
 
 
 

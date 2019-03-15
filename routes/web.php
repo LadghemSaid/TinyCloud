@@ -23,6 +23,7 @@ Route::get('/song/{id}', 'MonControleur@SongView')->where("id","[0-9]+");
 
 Route::post('/creerplaylist', 'MonControleur@CreePlaylist')->middleware('auth');
 Route::post('/creer', 'MonControleur@Creer')->middleware('auth');
+Route::get("/testajax","MonControleur@testajax");
 
 Auth::routes();
 
