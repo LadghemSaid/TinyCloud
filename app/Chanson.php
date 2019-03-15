@@ -12,6 +12,8 @@ class Chanson extends Model
     public function utilisateur() {
         return $this->belongsTo("App\User", "utilisateur_id");
     }
-    
+    public function likes(){
+        return $this ->hasMany('App\like');
+    }
     
 }
