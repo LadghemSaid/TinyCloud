@@ -125,3 +125,5 @@
 [11-Mar-2019 17:09:46 UTC] PHP Warning:  Use of undefined constant DB_DATABASE - assumed 'DB_DATABASE' (this will throw an Error in a future version of PHP) in /home/ubuntu/workspace/config/database.php on line 47
 [11-Mar-2019 17:10:19 UTC] PHP Warning:  Use of undefined constant DB_DATABASE - assumed 'DB_DATABASE' (this will throw an Error in a future version of PHP) in /home/ubuntu/workspace/config/database.php on line 47
 [11-Mar-2019 17:11:33 UTC] PHP Warning:  Use of undefined constant DB_DATABASE - assumed 'DB_DATABASE' (this will throw an Error in a future version of PHP) in /home/ubuntu/workspace/config/database.php on line 47
+[15-Mar-2019 08:00:45 UTC] PHP Warning:  Use of undefined constant DB_DATABASE - assumed 'DB_DATABASE' (this will throw an Error in a future version of PHP) in /home/ubuntu/workspace/config/database.php on line 47
+[15-Mar-2019 11:26:57 UTC] PHP Fatal error:  Trait 'App\Commenter' not found in /home/ubuntu/workspace/app/User.php on line 11

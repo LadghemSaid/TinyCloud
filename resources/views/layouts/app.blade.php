@@ -26,6 +26,7 @@
             @else
                 <li> Bonjour {{ Auth::user()->name }}</li>
                 <li> <a href="/nouvelle">Ajouter une musique</a> </li>
+                <li> <a href="/creerplaylistview">Creer une playlist</a> </li>
                 <li><a href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                    document.getElementById('logout-form').submit();">
@@ -37,7 +38,9 @@
         @endguest
     </ul>
 </nav>
+@auth
 <div id="example"></div>
+@endauth
 <div id="main">
     <audio id="audio" controls>
         <source src="" type:"audio:mp3"/>
