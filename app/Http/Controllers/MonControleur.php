@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Chanson;
+use App\Playlist;
+
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -10,8 +12,19 @@ use Illuminate\Support\Facades\Auth;
 class MonControleur extends Controller
 {
     public function index() {
+        
         $chansons = Chanson::all();
-        return view("index", ['chansons' => $chansons]);
+        
+        if (Auth::check())
+        {
+            $me = Auth::id();
+            return view("index", ['chansons' => $chansons, 'me' => $me ]);
+ 
+        }else{
+            
+            return view("index", ['chansons' => $chansons]);
+        }
+        
     }
 
     public function utilisateur($id) {
@@ -38,32 +51,33 @@ class MonControleur extends Controller
         return back()->with('toastr', ['statut' => 'success', 'message' => 'suivi modifié'] );
 
     }
-    public function AddToPlaylist($id){
-        $users = \App\User::with('roles')->get();
-        foreach ($users as $user) {
-            echo '<strong>' . $user->name . '<br></strong>';
-            foreach ($user->roles as $role) {
-            echo '<li>' . $role->name . '</li>';
-            }
-        }
+    
+    
+    public function AddToPlaylist($idp,$idc){
         
-        $users = \App\User::with('role_users.role', 'role_users.tags')->get();
- 
-        foreach ($users as $user) {
-        echo '<strong>' . $user->name . '<br></strong>';
-        foreach ($user->role_users as $role_user) {
-        echo $role_user->role->name . ' :<br>';
-        foreach ($role_user->tags as $tag) {
-            echo '<li>' . $tag->name . '</li>';
-        }
+        $p = Playlist::find($idp);
+        if($p == false || $p->user_id != Auth::id())
+            abort(403);
+        $p->chansons()->syncWithoutDetaching($idc);
+       return back();
     }
-    echo '<br>';
-}
+    
+    
+    public function CreePlaylistView(){
+     return view("creeplaylistform");
+    }
+    
+    
+    public function CreePlaylist(Request $request){
+    
         
-        die("ok");
-      
-         return view("playlist",['chansons'=>$users]);
-
+     if($request->input("nom") != " " && $request->input("nom") != null ){
+            $c = new Playlist();
+            $c->nom = $request->input("nom");
+            $c->user_id = Auth::id();
+            $c->save();
+        }
+        return redirect("/");
     }
     
     public function recherche($s){
@@ -76,6 +90,11 @@ class MonControleur extends Controller
     public function nouvelle(){
       
         return view("nouvelle");
+
+    }
+    public function SongView($id){
+        $chansons = Chanson::find($id);
+        return view("songview", ['chanson' => $chansons]);
 
     }
     
@@ -98,6 +117,9 @@ class MonControleur extends Controller
         }
         return redirect("/");
 
+    }
+    public function testajax(){
+        return redirect('/recherche/ut');
     }
 
 

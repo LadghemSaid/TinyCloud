@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
@@ -112,3 +113,11 @@
 @endif
 </body>
 </html>
+=======
+
+@if(request()->ajax())
+    @yield("content")
+    @else
+@include('layouts.full')
+    @endif
+>>>>>>> origin/master
