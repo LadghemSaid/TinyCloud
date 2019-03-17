@@ -21,10 +21,12 @@ Route::get('/creerplaylistview', 'MonControleur@CreePlaylistview')->middleware('
 Route::get('/playlistview', 'MonControleur@Playlistview')->middleware('auth');
 Route::get('/song/{id}', 'MonControleur@SongView')->where("id","[0-9]+");
 
+Route::get("/testajax","MonControleur@testajax");
+
+Route::get('/removefromplaylist/{idp}/{idc}', 'MonControleur@RemoveFromPlaylist')->middleware('auth');
 
 Route::post('/creerplaylist', 'MonControleur@CreePlaylist')->middleware('auth');
 Route::post('/creer', 'MonControleur@Creer')->middleware('auth');
-Route::get("/testajax","MonControleur@testajax");
 
 Auth::routes();
 

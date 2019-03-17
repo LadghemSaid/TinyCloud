@@ -59,12 +59,21 @@ class MonControleur extends Controller
         if($p == false || $p->user_id != Auth::id())
             abort(403);
         $p->chansons()->syncWithoutDetaching($idc);
-       return back();
+        return back();
     }
     
     
     public function CreePlaylistView(){
      return view("creeplaylistform");
+    }
+    
+    public function RemoveFromPlaylist($idp,$idc){
+        $chanson = Chanson::find($idc);
+        $p = Playlist::find($idp);
+        if($p == false || $p->user_id != Auth::id())
+            abort(403);
+        $p->chansons()->detach($idc);
+        return back();
     }
     
     

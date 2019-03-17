@@ -16,7 +16,15 @@ class Chanson extends Model
     }
 
     
- 
+    public function BelongToPlaylist($p,$cid){
+        $playlist = Playlist::find($p);
+        $exists = $playlist->chansons()->where('chanson.id', $cid)->exists();
+        
+        //var_dump($exists);
+        //die();
+        
+        return $exists;
+    }
 
 
     public function likes(){
