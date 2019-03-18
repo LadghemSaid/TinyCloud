@@ -76,11 +76,26 @@ class MonControleur extends Controller
         $p->chansons()->detach($idc);
         return back()->with('toastr', ['statut' => 'success', 'message' => 'Supprimé de la playlist '.$p->nom.' avec succés'] );
     }
+    
+    public function RemoveSong($idc){
+        $c = Chanson::find($idc);
+        if($c == false || $c->utilisateur_id != Auth::id())
+            abort(403)->with('toastr', ['statut' => 'error', 'message' => 'Erreur lors de la suppression'] );
+        $c->playlists()->sync([]);
+        $c->delete();
+        return back()->with('toastr', ['statut' => 'success', 'message' => $c->name.' supprimé avec succés'] );
+    }
+    
+    
     public function RemovePlaylist($idp){
         $p = Playlist::find($idp);
         if($p == false || $p->user_id != Auth::id())
             abort(403)->with('toastr', ['statut' => 'error', 'message' => 'Erreur lors de la suppression'] );
-        $p->remove($idp);
+        
+        $p->chansons()->sync([]);
+        $p->delete();
+        
+        
         return back()->with('toastr', ['statut' => 'success', 'message' => 'Playlist '.$p->nom.' supprimé avec succés'] );
     }
     

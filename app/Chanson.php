@@ -30,5 +30,10 @@ class Chanson extends Model
     public function likes(){
         return $this ->hasMany('App\like');
     }
+    
+    public function playlists() {
+        return $this->belongsToMany('App\Playlist', 'contient', 'chanson_id', 'playlist_id');
+        // SELECT * FROM chanson JOIN contient on chanson.id=chanson_id WHERE playlist_id=$this->id
+    }
  
 }

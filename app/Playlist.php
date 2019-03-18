@@ -13,10 +13,6 @@ class Playlist extends Model
         return $this->belongsToMany('App\Chanson', 'contient', 'playlist_id', 'chanson_id');
         // SELECT * FROM chanson JOIN contient on chanson.id=chanson_id WHERE playlist_id=$this->id
     }
-    public function remove($idp) {
-        return $this->delete();
-    }
-    
     
     public function utilisateur() {
         return $this->belongsTo("App\User", "user_id");
