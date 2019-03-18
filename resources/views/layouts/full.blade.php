@@ -34,6 +34,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="/creerplaylistview">Cree une playlist</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/nouvelle">Ajoutez une chanson</a>
+            </li>
             <li class="nav-link"> Bonjour {{ Auth::user()->name }}</li>
             <li class="nav-link"><a href="{{ route('logout') }}"
                    onclick="event.preventDefault();

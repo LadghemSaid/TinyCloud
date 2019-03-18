@@ -45,10 +45,10 @@ class MonControleur extends Controller
     public function suivre($id){
         $utilisateur = User::find($id);
         if( !$utilisateur){
-            return redirect ('/')->with('toastr',['statut'=>'error','message'=>'probleme']);
+            return redirect ('/')->with('toastr',['statut'=>'error','message'=>'Probleme lors du suivi']);
         }
         $utilisateur->ilsMeSuivent()->toggle(Auth::id());
-        return back()->with('toastr', ['statut' => 'success', 'message' => 'suivi modifié'] );
+        return back()->with('toastr', ['statut' => 'success', 'message' => 'Suivi modifié'] );
 
     }
     
@@ -57,9 +57,9 @@ class MonControleur extends Controller
         
         $p = Playlist::find($idp);
         if($p == false || $p->user_id != Auth::id())
-            abort(403);
+            abort(403)->with('toastr', ['statut' => 'error', 'message' => 'Erreur lors de l\'ajout'] );
         $p->chansons()->syncWithoutDetaching($idc);
-        return back();
+        return back()->with('toastr', ['statut' => 'success', 'message' => 'Ajoutez a playlist '.$p->nom.' avec succés'] );
     }
     
     
@@ -71,9 +71,16 @@ class MonControleur extends Controller
         $chanson = Chanson::find($idc);
         $p = Playlist::find($idp);
         if($p == false || $p->user_id != Auth::id())
-            abort(403);
+            abort(403)->with('toastr', ['statut' => 'error', 'message' => 'Erreur lors de la suppression'] );
         $p->chansons()->detach($idc);
-        return back();
+        return back()->with('toastr', ['statut' => 'success', 'message' => 'Supprimé de la playlist '.$p->nom.' avec succés'] );
+    }
+    public function RemovePlaylist($idp){
+        $p = Playlist::find($idp);
+        if($p == false || $p->user_id != Auth::id())
+            abort(403)->with('toastr', ['statut' => 'error', 'message' => 'Erreur lors de la suppression'] );
+        $p->remove($idp);
+        return back()->with('toastr', ['statut' => 'success', 'message' => 'Playlist '.$p->nom.' supprimé avec succés'] );
     }
     
     
@@ -86,7 +93,7 @@ class MonControleur extends Controller
             $c->user_id = Auth::id();
             $c->save();
         }
-        return redirect("/");
+        return redirect("/")->with('toastr', ['statut' => 'success', 'message' => 'Playlist crée avec succés'] );
     }
     
     public function recherche($s){
@@ -139,7 +146,7 @@ class MonControleur extends Controller
             $c->save();
             
         }
-        return redirect("/");
+        return redirect("/")->with('toastr', ['statut' => 'success', 'message' => 'Chanson ajoutez avec succés'] );
 
     }
     public function testajax(){

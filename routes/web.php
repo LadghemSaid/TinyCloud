@@ -20,6 +20,9 @@ Route::get('/addtoplaylist/{idp}/{idc}', 'MonControleur@AddToPlaylist')->middlew
 Route::get('/creerplaylistview', 'MonControleur@CreePlaylistview')->middleware('auth');
 Route::get('/playlistview', 'MonControleur@Playlistview')->middleware('auth');
 Route::get('/song/{id}', 'MonControleur@SongView')->where("id","[0-9]+");
+Route::get('/removeplaylist/{idp}', 'MonControleur@RemovePlaylist')->where("idp","[0-9]+");
+
+
 
 Route::get("/testajax","MonControleur@testajax");
 
