@@ -130,7 +130,7 @@ class MonControleur extends Controller
         $api = new Larafy();
         
          try {
-            $result = $api->searchArtists($slug,3);
+            $result = $api->searchArtists($slug,1,0);
         } catch(\Rennokki\Larafy\Exceptions\SpotifyAuthorizationException $e) {
          // invalid ID & Secret provided
             print_r($e);die(1);
