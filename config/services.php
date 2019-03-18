@@ -19,6 +19,14 @@ return [
         'secret' => env('MAILGUN_SECRET'),
         'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),
     ],
+    
+    
+    'spotify' => [
+    'client_id' => '32c02a8e82e7465fb753853abd399362',
+    'client_secret' => '396567c4010c405c8b296b790fca7db9',
+    'redirect' => env('SPOTIFY_REDIRECT_URI')
+    ],
+
 
     'ses' => [
         'key' => env('SES_KEY'),

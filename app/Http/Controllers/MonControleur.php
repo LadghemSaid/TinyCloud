@@ -9,6 +9,8 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use Rennokki\Larafy\Larafy;
+
 class MonControleur extends Controller
 {
     public function index() {
@@ -119,8 +121,20 @@ class MonControleur extends Controller
 
     }
     public function nouvelle(){
-      
-        return view("nouvelle");
+        $api = new Larafy();
+        
+        $result = $api->searchArtists('Lana del Rey');
+        echo "<pre>";var_dump($result);
+        die(1);
+        /*try {
+            $api->getArtist('Lana del Rey');
+        } catch(\Rennokki\Larafy\Exceptions\SpotifyAuthorizationException $e) {
+         // invalid ID & Secret provided
+            print_r($e);die(1);
+            $e->getAPIResponse(); // Get the JSON API response.
+        }*/
+        
+        return view("nouvelle", ["result" => $e]);
 
     }
     public function PlaylistView(){
