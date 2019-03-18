@@ -7,6 +7,26 @@ $(document).ready(function(){
         $.pjax.submit(event, '#pjax-container')
     })
 
+    $("#Ajaxquery").on('input',function(e){
+    console.log(e.target.value);
+    if($.support.pjax){
+        $.ajax({
+            type:"GET",
+            url:'/autocomplete/'+ e.target.value,
+            
+            success: function(data, textStatus,jqXHR){
+                $("#AjaxqueryList").html(data);
+            },
+            error: function(jqHXR, textStatus, errorThrown){
+
+            }
+
+        })
+            //$.pjax({url:"/autocomplete/" + e.target.value, container:'#AjaxqueryList'})
+        }
+       
+    });
+
     $("#search").submit(function(e){
         e.preventDefault();
         if($.support.pjax){

@@ -25,6 +25,7 @@ Route::get('/removefromplaylist/{idp}/{idc}', 'MonControleur@RemoveFromPlaylist'
 Route::get('/removesong/{idc}', 'MonControleur@RemoveSong')->middleware('auth')->where("idc","[0-9]+");
 
 
+Route::get('/autocomplete/{slug}', 'MonControleur@AutoComplete')->middleware('auth');
 
 Route::get("/testajax","MonControleur@testajax");
 

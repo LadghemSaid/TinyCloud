@@ -122,20 +122,38 @@ class MonControleur extends Controller
 
     }
     public function nouvelle(){
+
+        return view("nouvelle");
+
+    }
+    public function AutoComplete($slug){
         $api = new Larafy();
         
-        $result = $api->searchArtists('Lana del Rey');
-        echo "<pre>";var_dump($result);
-        die(1);
-        /*try {
-            $api->getArtist('Lana del Rey');
+         try {
+            $result = $api->searchArtists($slug,3);
         } catch(\Rennokki\Larafy\Exceptions\SpotifyAuthorizationException $e) {
          // invalid ID & Secret provided
             print_r($e);die(1);
             $e->getAPIResponse(); // Get the JSON API response.
-        }*/
+        }
+        //$result = json_decode(json_encode($result), True);
+        //echo "<pre>";var_dump($result);
+        $res = array();
+        foreach($result->items as $item){
+        //echo "<pre>";var_dump($item);
+        //echo $item[0]['name'];
+        //echo "$item->name";
+        $res[] = $item->name;
+        //echo "<pre>";var_dump($item); echo "<hr>";
+        }
+        //var_dump($res);
+        //die();
         
-        return view("nouvelle", ["result" => $e]);
+        
+        
+       
+        
+        return view("autocomplete", ['res'=>$res]);
 
     }
     public function PlaylistView(){

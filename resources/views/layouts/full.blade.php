@@ -7,11 +7,11 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/icon/style.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/icon/style.css') }}" rel="stylesheet">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{asset('css/toastr.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('css/toastr.css')}}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
 <body>
@@ -29,23 +29,23 @@
             @auth
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Feeds</a>
+                    <a class="nav-link" href="/" data-pjax>Feeds</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/playlistview">Playlist</a>
+                    <a class="nav-link" href="/playlistview" data-pjax>Playlist</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/creerplaylistview">Cree une playlist</a>
+                    <a class="nav-link" href="/creerplaylistview" data-pjax>Cree une playlist</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/nouvelle" data-pjax>Ajoutez une chanson</a>
                 </li>
                 <li class="nav-link"> Bonjour {{ Auth::user()->name }}</li>
-                <li class="nav-link"><a href="{{ route('logout') }}"
+                <li class="nav-link" ><a href="{{ route('logout') }}"
 
                                         onclick="event.preventDefault();
 
-               document.getElementById('logout-form').submit();">
+               document.getElementById('logout-form').submit();" >
                         Logout
                     </a></li>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -67,7 +67,7 @@
         </ul>
         <form id="search" class=" form-inline my-2 my-lg-0">
             <input type="search" class=" form-control mr-sm-2" name="search" required placeholder="Votre recherche"/>
-            <button class="btn btnCyan my-2 my-sm-0 btn-ci" type="submit">Search <span class="icon-search"></span></button>
+            <button class="btn btnCyan my-2 my-sm-0 btn-ci" type="submit" data-pjax>Search <span class="icon-search"></span></button>
         </form>
 
     </div>
@@ -103,13 +103,13 @@
 
 <!-- Scripts -->
 
-<script src="{{ asset('js/jquery.js') }}"></script>
-<script src="{{ asset('js/jquery.pjax.js') }}"></script>
+<script src="{{ secure_asset('js/jquery.js') }}"></script>
+<script src="{{ secure_asset('js/jquery.pjax.js') }}"></script>
 <!--<script src="{{ asset('js/app.js') }}"></script>-->
-<script src="{{ asset('js/main.js') }}"></script>
+<script src="{{ secure_asset('js/main.js') }}"></script>
 
-<script src="{{ asset('js/player.js') }}"></script>
-<script src="{{ asset('js/toastr.min.js') }}"></script>
+<script src="{{ secure_asset('js/player.js') }}"></script>
+<script src="{{ secure_asset('js/toastr.min.js') }}"></script>
 
 </body>
 </html>
