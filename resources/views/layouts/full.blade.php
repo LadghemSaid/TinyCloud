@@ -74,7 +74,7 @@
 </nav>
 
 <div id="main">
-    <div id="pjax-container">
+    <div id="pjax-container" class="container">
         @yield('content')
     </div>
 </div>

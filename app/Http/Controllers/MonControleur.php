@@ -128,7 +128,7 @@ class MonControleur extends Controller
     }
     public function AutoComplete($slug){
         $api = new Larafy();
-        
+         $api->setMarket('FR');
          try {
             $result = $api->searchArtists($slug,1,0);
         } catch(\Rennokki\Larafy\Exceptions\SpotifyAuthorizationException $e) {
@@ -140,20 +140,53 @@ class MonControleur extends Controller
         //echo "<pre>";var_dump($result);
         $res = array();
         foreach($result->items as $item){
-        //echo "<pre>";var_dump($item);
-        //echo $item[0]['name'];
+        echo "<pre>";var_dump($item);
+      
         //echo "$item->name";
         $res[] = $item->name;
         //echo "<pre>";var_dump($item); echo "<hr>";
         }
         //var_dump($res);
-        //die();
-        
+       
         
         
        
         
         return view("autocomplete", ['res'=>$res]);
+
+    }
+    
+    public function GetArtist($slug){
+        $api = new Larafy();
+        $api->setMarket('FR');
+         try {
+            $result = $api->searchArtists($slug,1,0);
+        } catch(\Rennokki\Larafy\Exceptions\SpotifyAuthorizationException $e) {
+         // invalid ID & Secret provided
+            print_r($e);die(1);
+            $e->getAPIResponse(); // Get the JSON API response.
+        }
+     
+        //$result = json_decode(json_encode($result), True);
+        //echo "<pre>";var_dump($result);
+        $res = array();
+     
+        foreach($result->items as $item){
+        //echo "$item->images[0]->url";
+           foreach( $item->images as $img){
+               
+                $res[] = $img->url;
+                //echo "<pre>";var_dump($img);
+            }
+        //echo "<pre>";var_dump($item); echo "<hr>";
+        }
+       
+       
+        
+        
+       
+        
+        return  $res;
 
     }
     public function PlaylistView(){

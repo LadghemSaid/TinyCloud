@@ -26,6 +26,7 @@ Route::get('/removesong/{idc}', 'MonControleur@RemoveSong')->middleware('auth')-
 
 
 Route::get('/autocomplete/{slug}', 'MonControleur@AutoComplete')->middleware('auth');
+Route::get('/getartist/{slug}', 'MonControleur@GetArtist')->middleware('auth');
 
 Route::get("/testajax","MonControleur@testajax");
 

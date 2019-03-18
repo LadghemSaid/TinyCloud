@@ -22,10 +22,42 @@ $(document).ready(function(){
             }
 
         })
-            //$.pjax({url:"/autocomplete/" + e.target.value, container:'#AjaxqueryList'})
+           
         }
        
     });
+    
+    //Next function pour afficher l'image de l'artiste
+    $("#Ajaxquery").on('input', function () {
+    var val = this.value;
+    if($('#AjaxqueryList option').filter(function(){
+        return this.value.toUpperCase() === val.toUpperCase();        
+    }).length) {
+        //send ajax request
+        //alert(this.value);
+          if($.support.pjax){
+        $.ajax({
+            type:"GET",
+            url:'/getartist/'+ this.value,
+            
+            success: function(data, textStatus,jqXHR){
+                console.log(data);
+               
+                $("#artistimg").attr("src",data[1]);
+            },
+            error: function(jqHXR, textStatus, errorThrown){
+
+            }
+
+        })
+           
+        }
+    }
+    });
+    
+    
+    
+    
 
     $("#search").submit(function(e){
         e.preventDefault();
