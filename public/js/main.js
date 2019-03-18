@@ -1,3 +1,6 @@
+$(document).pjax('[data-pjax] a, a[data-pjax]', '#pjax-container');
+
+
 $(document).ready(function(){
     $("#search").submit(function(e){
         e.preventDefault();

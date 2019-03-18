@@ -26,7 +26,7 @@
             <li><a href="{{ route('register') }}">Register</a></li>
         @else
             <li> Bonjour {{ Auth::user()->name }}</li>
-            <li> <a href="/nouvelle">Ajouter une musique</a> </li>
+            <li> <a href="/nouvelle" data-pjax>Ajouter une musique</a> </li>
             <li><a href="{{ route('logout') }}"
                    onclick="event.preventDefault();
                    document.getElementById('logout-form').submit();">
@@ -39,7 +39,7 @@
     </ul>
 </nav>
 <div id="example"></div>
-<div id="main">
+<div id="main pjax-container">
     <audio id="audio" controls>
         <source src="" type="audio:mp3"/>
     </audio>
@@ -67,4 +67,4 @@
 @endif
 
 </body>
-</html
+</html>
