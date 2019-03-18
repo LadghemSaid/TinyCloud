@@ -1,11 +1,15 @@
 <ul>
 @foreach($chansons as $c)
     <li>
-        <a href="song/{{$c->id}}" class="chanson" data-file="{{$c->fichier}}" >{{$c->nom}}</a> écrite par <a href="/utilisateur/{{$c->utilisateur->id}}">{{$c->utilisateur->name}}</a>, Le {{$c->utilisateur->created_at}}
-        
+        <a href="song/{{$c->id}}" class="chanson" data-file="{{$c->fichier}}" >{{$c->nom}}</a> écrite par <a href="/utilisateur/{{$c->utilisateur->id}}">{{$c->utilisateur->name}}</a> 
+        @if($c->utilisateur->created_at != null)
+            <p>Le {{$c->utilisateur->created_at}}</p>
+        @endif
        
         @auth
-
+        @if($c->utilisateur_id == Auth::user()->id)
+            <a href="/removesong/{{$c->id}}" class="btn btn-danger btn-sm">X</a>
+        @endif
         <div class="dropdown">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Ajouter à :
@@ -27,15 +31,13 @@
           </div>
         </div>
 
-        
-            <br>
-            <a href="#" class="like">like</a>
-            <br>
-            <a href="#" class="like">dislike</a>
-
+            @if($c->utilisateur_id !== Auth::user()->id)
+                <br>
+                <a href="#" class="like btn btn-success btn-sm"><i class="fas fa-thumbs-up"></i></a>
+                <br>
+                <a href="#" class="like btn btn-danger btn-sm"><i class="fas fa-thumbs-down"></i></a>
+            @endif
         @endauth
-        
-        
     </li>
 @endforeach
 </ul>
