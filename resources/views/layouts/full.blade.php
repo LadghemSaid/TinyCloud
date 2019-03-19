@@ -31,45 +31,35 @@
 
 
 <footer class="footerFix container-fluid fixed-bottom shadow-lg">
-        <div class="row">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12 shadow-lg">
-                                <audio id="audio" class="lecteur-son" controls data-titre="Groove" data-auteur="Auteur inconnu"
-                                    data-illustration="TR-153.jpg">
-                                    <source src="" type="audio/mp3">
-                                </audio>
-                            </div>
+    <div class="row">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 shadow-lg">
+                            <audio id="audio" class="lecteur-son" controls data-titre="Groove" data-auteur="Auteur inconnu"
+                                   data-illustration="TR-153.jpg">
+                                <source src="" type="audio/mp3">
+                            </audio>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
 
 
 
 <!-- Scripts -->
 
-<script src="{{ asset('js/jquery.js') }}"></script>
-<script src="{{ asset('js/app.js') }}"></script>
-<script src="{{ asset('js/main.js') }}"></script>
+<script src="{{ secure_asset('js/jquery.js') }}"></script>
+<script src="{{ secure_asset('js/jquery.pjax.js') }}"></script>
+<!--<script src="{{ asset('js/app.js') }}"></script>-->
+<script src="{{ secure_asset('js/main.js') }}"></script>
 
-
-<script src="https://code.jquery.com/jquery-3.3.1.min.js">
-</script>
-<script src="{{ asset('js/player.js') }}"></script>
-<script src="{{ asset('js/toastr.min.js') }}"></script>
-@if(Session::has('toastr'))
-    <script>
-        $(document).ready(function (){
-            toastr.{{Session::get('toastr')['statut']}}('{{Session::get('toastr')['message']}}');
-        });
-
-    </script>
-@endif
+<script src="{{ secure_asset('js/player.js') }}"></script>
+<script src="{{ secure_asset('js/toastr.min.js') }}"></script>
 
 {{-- import de glide --}}
 

@@ -8,6 +8,9 @@ use App\Playlist;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+
+use Rennokki\Larafy\Larafy;
 
 class MonControleur extends Controller
 {
@@ -45,10 +48,10 @@ class MonControleur extends Controller
     public function suivre($id){
         $utilisateur = User::find($id);
         if( !$utilisateur){
-            return redirect ('/')->with('toastr',['statut'=>'error','message'=>'probleme']);
+            return redirect ('/')->with('toastr',['statut'=>'error','message'=>'Probleme lors du suivi']);
         }
         $utilisateur->ilsMeSuivent()->toggle(Auth::id());
-        return back()->with('toastr', ['statut' => 'success', 'message' => 'suivi modifié'] );
+        return back()->with('toastr', ['statut' => 'success', 'message' => 'Suivi modifié'] );
 
     }
     
@@ -57,9 +60,9 @@ class MonControleur extends Controller
         
         $p = Playlist::find($idp);
         if($p == false || $p->user_id != Auth::id())
-            abort(403);
+            abort(403)->with('toastr', ['statut' => 'error', 'message' => 'Erreur lors de l\'ajout'] );
         $p->chansons()->syncWithoutDetaching($idc);
-        return back();
+        return back()->with('toastr', ['statut' => 'success', 'message' => 'Ajoutez a playlist '.$p->nom.' avec succés'] );
     }
     
     
@@ -71,9 +74,31 @@ class MonControleur extends Controller
         $chanson = Chanson::find($idc);
         $p = Playlist::find($idp);
         if($p == false || $p->user_id != Auth::id())
-            abort(403);
+            abort(403)->with('toastr', ['statut' => 'error', 'message' => 'Erreur lors de la suppression'] );
         $p->chansons()->detach($idc);
-        return back();
+        return back()->with('toastr', ['statut' => 'success', 'message' => 'Supprimé de la playlist '.$p->nom.' avec succés'] );
+    }
+    
+    public function RemoveSong($idc){
+        $c = Chanson::find($idc);
+        if($c == false || $c->utilisateur_id != Auth::id())
+            abort(403)->with('toastr', ['statut' => 'error', 'message' => 'Erreur lors de la suppression'] );
+        $c->playlists()->sync([]);
+        $c->delete();
+        return back()->with('toastr', ['statut' => 'success', 'message' => $c->name.' supprimé avec succés'] );
+    }
+    
+    
+    public function RemovePlaylist($idp){
+        $p = Playlist::find($idp);
+        if($p == false || $p->user_id != Auth::id())
+            abort(403)->with('toastr', ['statut' => 'error', 'message' => 'Erreur lors de la suppression'] );
+        
+        $p->chansons()->sync([]);
+        $p->delete();
+        
+        
+        return back()->with('toastr', ['statut' => 'success', 'message' => 'Playlist '.$p->nom.' supprimé avec succés'] );
     }
     
     
@@ -86,7 +111,7 @@ class MonControleur extends Controller
             $c->user_id = Auth::id();
             $c->save();
         }
-        return redirect("/");
+        return redirect("/")->with('toastr', ['statut' => 'success', 'message' => 'Playlist crée avec succés'] );
     }
     
     public function recherche($s){
@@ -97,8 +122,71 @@ class MonControleur extends Controller
 
     }
     public function nouvelle(){
-      
+
         return view("nouvelle");
+
+    }
+    public function AutoComplete($slug){
+        $api = new Larafy();
+         $api->setMarket('FR');
+         try {
+            $result = $api->searchArtists($slug,1,0);
+        } catch(\Rennokki\Larafy\Exceptions\SpotifyAuthorizationException $e) {
+         // invalid ID & Secret provided
+            print_r($e);die(1);
+            $e->getAPIResponse(); // Get the JSON API response.
+        }
+        //$result = json_decode(json_encode($result), True);
+        //echo "<pre>";var_dump($result);
+        $res = array();
+        foreach($result->items as $item){
+        echo "<pre>";var_dump($item);
+      
+        //echo "$item->name";
+        $res[] = $item->name;
+        //echo "<pre>";var_dump($item); echo "<hr>";
+        }
+        //var_dump($res);
+       
+        
+        
+       
+        
+        return view("autocomplete", ['res'=>$res]);
+
+    }
+    
+    public function GetArtist($slug){
+        $api = new Larafy();
+        $api->setMarket('FR');
+         try {
+            $result = $api->searchArtists($slug,1,0);
+        } catch(\Rennokki\Larafy\Exceptions\SpotifyAuthorizationException $e) {
+         // invalid ID & Secret provided
+            print_r($e);die(1);
+            $e->getAPIResponse(); // Get the JSON API response.
+        }
+     
+        //$result = json_decode(json_encode($result), True);
+        //echo "<pre>";var_dump($result);
+        $res = array();
+     
+        foreach($result->items as $item){
+        //echo "$item->images[0]->url";
+           foreach( $item->images as $img){
+               
+                $res[] = $img->url;
+                //echo "<pre>";var_dump($img);
+            }
+        //echo "<pre>";var_dump($item); echo "<hr>";
+        }
+       
+       
+        
+        
+       
+        
+        return  $res;
 
     }
     public function PlaylistView(){
@@ -123,6 +211,19 @@ class MonControleur extends Controller
     }
     
     public function Creer(Request $request){
+        $validator=Validator::make($request->all(),[
+            'nom' => 'required|min:6'
+
+        ]);
+        if ($validator->fails()) {
+            return redirect('/nouvelle')
+                ->withErrors($validator)
+                ->withInput()
+                ->with('toastr', ['statut' => 'error', 'message' => 'Probleme'] );
+        }
+
+        //$validatedData = $request->validate
+
         if($request->hasFile("chanson") && $request->file("chanson")->isValid()){
             $c = new Chanson();
             $c->nom = $request->input("nom");
@@ -139,7 +240,7 @@ class MonControleur extends Controller
             $c->save();
             
         }
-        return redirect("/");
+        return redirect("/")->with('toastr', ['statut' => 'success', 'message' => 'Chanson ajoutez avec succés'] );
 
     }
     public function testajax(){

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Ma Home page {{$utilisateur->name}}</h1>
+    <h1>Ma Home page</h1>
     <br/>
     Je suis : {{$utilisateur->jelesSuit->count()}} personne(s)
     <br/>

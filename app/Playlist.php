@@ -14,7 +14,6 @@ class Playlist extends Model
         // SELECT * FROM chanson JOIN contient on chanson.id=chanson_id WHERE playlist_id=$this->id
     }
     
-    
     public function utilisateur() {
         return $this->belongsTo("App\User", "user_id");
     }

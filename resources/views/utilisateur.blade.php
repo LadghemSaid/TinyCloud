@@ -12,9 +12,9 @@
         @if(Auth::id() != $utilisateur->id)
 
             @if($utilisateur->ilsMeSuivent->contains(Auth::id()))
-                <a href="/suivre/{{$utilisateur->id}}">[Arréter de suivre]</a>
+                <a href="/suivre/{{$utilisateur->id}}" data-pjax-toggle>[Arréter de suivre]</a>
                 @else
-                <a href="/suivre/{{$utilisateur->id}}">[Suivre]</a>
+                <a href="/suivre/{{$utilisateur->id}}" data-pjax-toggle>[Suivre]</a>
             @endif
         @endif
     @endauth

@@ -20,10 +20,16 @@ Route::get('/addtoplaylist/{idp}/{idc}', 'MonControleur@AddToPlaylist')->middlew
 Route::get('/creerplaylistview', 'MonControleur@CreePlaylistview')->middleware('auth');
 Route::get('/playlistview', 'MonControleur@Playlistview')->middleware('auth');
 Route::get('/song/{id}', 'MonControleur@SongView')->where("id","[0-9]+");
+Route::get('/removeplaylist/{idp}', 'MonControleur@RemovePlaylist')->where("idp","[0-9]+");
+Route::get('/removefromplaylist/{idp}/{idc}', 'MonControleur@RemoveFromPlaylist')->middleware('auth');
+Route::get('/removesong/{idc}', 'MonControleur@RemoveSong')->middleware('auth')->where("idc","[0-9]+");
+
+
+Route::get('/autocomplete/{slug}', 'MonControleur@AutoComplete')->middleware('auth');
+Route::get('/getartist/{slug}', 'MonControleur@GetArtist')->middleware('auth');
 
 Route::get("/testajax","MonControleur@testajax");
 
-Route::get('/removefromplaylist/{idp}/{idc}', 'MonControleur@RemoveFromPlaylist')->middleware('auth');
 
 Route::post('/creerplaylist', 'MonControleur@CreePlaylist')->middleware('auth');
 Route::post('/creer', 'MonControleur@Creer')->middleware('auth');

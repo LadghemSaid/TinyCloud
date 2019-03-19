@@ -59,17 +59,17 @@ class DatabaseSeeder extends Seeder
         //Playlist seed
          DB::table('playlist')->insert([
             'nom' => "PLaylist 1",
-            'user_id' => "3"
+             'user_id'=> "5",
             
         ]);
          DB::table('playlist')->insert([
             'nom' => "PLaylist 2",
-            'user_id' => "3"
+             'user_id'=> "5",
             
         ]);
          DB::table('playlist')->insert([
             'nom' => "PLaylist 3",
-            'user_id' => "3"
+             'user_id'=> "5",
             
         ]);
      

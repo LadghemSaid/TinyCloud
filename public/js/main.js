@@ -1,7 +1,72 @@
+
+
 $(document).ready(function(){
+    $(document).pjax('[data-pjax] a, a[data-pjax]', '#pjax-container');
+    $(document).pjax('[data-pjax-toggle] a, a[data-pjax-toggle]', '#pjax-container',{push : false});
+    $(document).on('submit', 'form[data-pjax]', function(event) {
+        $.pjax.submit(event, '#pjax-container')
+    })
+
+    $("#Ajaxquery").on('input',function(e){
+    console.log(e.target.value);
+    if($.support.pjax){
+        $.ajax({
+            type:"GET",
+            url:'/autocomplete/'+ e.target.value,
+            
+            success: function(data, textStatus,jqXHR){
+                $("#AjaxqueryList").html(data);
+            },
+            error: function(jqHXR, textStatus, errorThrown){
+
+            }
+
+        })
+           
+        }
+       
+    });
+    
+    //Next function pour afficher l'image de l'artiste
+    $("#Ajaxquery").on('input', function () {
+    var val = this.value;
+    if($('#AjaxqueryList option').filter(function(){
+        return this.value.toUpperCase() === val.toUpperCase();        
+    }).length) {
+        //send ajax request
+        //alert(this.value);
+          if($.support.pjax){
+        $.ajax({
+            type:"GET",
+            url:'/getartist/'+ this.value,
+            
+            success: function(data, textStatus,jqXHR){
+                console.log(data);
+               
+                $("#artistimg").attr("src",data[1]);
+            },
+            error: function(jqHXR, textStatus, errorThrown){
+
+            }
+
+        })
+           
+        }
+    }
+    });
+    
+    
+    
+    
+
     $("#search").submit(function(e){
         e.preventDefault();
-        window.location.href = "/recherche/"+e.target.elements[0].value;
+        if($.support.pjax){
+            $.pjax({url:"/recherche/" + e.target.elements[0].value, container:'#pjax-container'})
+        }
+        else {
+            window.location.href = "/recherche/" + e.target.elements[0].value;
+        }
     });
 
 
