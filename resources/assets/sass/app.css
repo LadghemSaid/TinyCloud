@@ -29,7 +29,7 @@
   right: 15%;
   bottom: 14vh;
   width: 70%;
-  display: flex;
+  display: flex; 
   flex-direction: column;
   justify-content: center;
   align-items: center;

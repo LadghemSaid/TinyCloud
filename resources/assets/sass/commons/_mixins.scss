@@ -14,7 +14,7 @@
     }
   }
   @mixin lg() {
-    @media screen and (max-width:$lg){
+    @media screen and (max-width:$lg){ 
       @content;
     }
   }

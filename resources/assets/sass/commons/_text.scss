@@ -61,8 +61,10 @@ i {
 
 a {
     text-decoration: none;
+    color: $purpleBlue;
 
-    :hover {
+    &:hover, &:link, &:active  {
+        color: $blue;
         text-decoration: none;
     }
 }
