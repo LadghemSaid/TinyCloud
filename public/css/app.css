@@ -158,6 +158,21 @@
   height: 100%;
 }
 
+.feed .sounds .card .dropdown {
+  text-align: center;
+}
+
+.feed .sounds .card .card-body h1, .feed .sounds .card .card-body h2, .feed .sounds .card .card-body h3, .feed .sounds .card .card-body h4, .feed .sounds .card .card-body h5, .feed .sounds .card .card-body h6 {
+  text-align: center;
+}
+
+.feed .sounds .card .card-buttons {
+  margin: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 .feed .endFeed {
   height: 6vh;
 }
@@ -224,9 +239,11 @@ i {
 
 a {
   text-decoration: none;
+  color: #7888BF;
 }
 
-a :hover {
+a:hover, a:link, a:active {
+  color: #68C2E5;
   text-decoration: none;
 }
 
@@ -306,8 +323,7 @@ li {
 
 .form-control:focus {
   border-color: #60487F;
-  outline: 0;
-  box-shadow: inset 0 1px 1px #60487F, 0 0 8px #60487F;
+  box-shadow: 0 0 0 0.2rem rgba(96, 72, 127, 0.13);
 }
 
 .btn {
@@ -315,23 +331,38 @@ li {
   transition: all .2s ease-in-out;
 }
 
+.btn:focus {
+  border-color: #60487F;
+  box-shadow: 0 0 0 0.2rem rgba(96, 72, 127, 0.13);
+}
+
 .btnPurple {
-  color: #60487F;
+  color: #60487F !important;
   border-color: #60487F;
 }
 
 .btnPurple:hover {
-  color: white;
+  color: white !important;
   background-color: #60487F;
 }
 
+.btnPurpleDark {
+  color: #3D013C !important;
+  border-color: #3D013C;
+}
+
+.btnPurpleDark:hover {
+  color: white !important;
+  background-color: #3D013C;
+}
+
 .btnCyan {
-  color: #4AF8FF;
+  color: #4AF8FF !important;
   border-color: #4AF8FF;
 }
 
-.btnCyan:hover {
-  color: #0e0e0e;
+.btnCyan :hover {
+  color: white !important;
   background-color: #4AF8FF;
 }
 

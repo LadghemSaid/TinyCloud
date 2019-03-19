@@ -30,3 +30,5 @@ Route::post('/creer', 'MonControleur@Creer')->middleware('auth');
 
 Auth::routes();
 
+Route::view('/test', './layouts/test');
+
