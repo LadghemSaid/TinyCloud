@@ -1,12 +1,17 @@
 
 
 $(document).ready(function(){
+    //dropdown activation
+   $(".dropdown-toggle").dropdown();
+ 
+ /*
     $(document).pjax('[data-pjax] a, a[data-pjax]', '#pjax-container');
     $(document).pjax('[data-pjax-toggle] a, a[data-pjax-toggle]', '#pjax-container',{push : false});
     $(document).on('submit', 'form[data-pjax]', function(event) {
         $.pjax.submit(event, '#pjax-container')
     })
 
+*/
     $("#Ajaxquery").on('input',function(e){
     console.log(e.target.value);
     if($.support.pjax){
@@ -55,7 +60,66 @@ $(document).ready(function(){
     }
     });
     
+    //Like/dislike
+        $(".liked").on("click",function(e){
+        e.preventDefault();
+        console.log(e.currentTarget.dataset.idc);
+        if($.support.pjax){
+            $.ajax({
+                type:"GET",
+                url:'/like/'+e.currentTarget.dataset.idc,
+                
+                success: function(data, textStatus,jqXHR){
+                console.log(data);
+                $("#countLike"+e.currentTarget.dataset.idc).html(data);
+              
+                },
+                error: function(jqHXR, textStatus, errorThrown){
     
+                }
+    
+            })
+               
+            }
+           
+        });
+        $(".disliked").on("click",function(e){
+        e.preventDefault();
+        console.log(e.currentTarget.dataset.idc);
+        if($.support.pjax){
+            $.ajax({
+                type:"GET",
+                url:'/dislike/'+e.currentTarget.dataset.idc,
+                
+                success: function(data, textStatus,jqXHR){
+                console.log(data);
+                $("#countDislike"+e.currentTarget.dataset.idc).html(data);
+                
+                },
+                error: function(jqHXR, textStatus, errorThrown){
+    
+                }
+    
+            })
+               
+            }
+           
+        });
+    
+    
+    
+     $(".chosen-select").chosen({
+         no_results_text: "Oops, Désolé nous n'avons pas !",
+         max_selected_options: 3,
+         width: "50%",
+         enable_split_word_search: true,
+         search_contains:true,
+         single_backstroke_delete:false,
+         disable_search:false,
+         placeholder_text_multiple:"Genre musicale"
+         
+         
+     }).bind("chosen:maxselected", function () { swal( "3 max" ,  "Trop c'est trop !" ,  "error" ) }); ; 
     
     
 

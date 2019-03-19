@@ -57,12 +57,17 @@ class MonControleur extends Controller
     
     
     public function AddToPlaylist($idp,$idc){
+        $url=url()->previous();
+        //var_dump($url);
+        //die(2);
+        
         
         $p = Playlist::find($idp);
-        if($p == false || $p->user_id != Auth::id())
+        if($p == false || $p->user_id != Auth::id()){
             abort(403)->with('toastr', ['statut' => 'error', 'message' => 'Erreur lors de l\'ajout'] );
+        }
         $p->chansons()->syncWithoutDetaching($idc);
-        return back()->with('toastr', ['statut' => 'success', 'message' => 'Ajoutez a playlist '.$p->nom.' avec succés'] );
+        return redirect($url)->with('toastr', ['statut' => 'success', 'message' => 'Ajoutez a playlist '.$p->nom.' avec succés'] );
     }
     
     
@@ -71,12 +76,31 @@ class MonControleur extends Controller
     }
     
     public function RemoveFromPlaylist($idp,$idc){
+        $url=url()->previous();
         $chanson = Chanson::find($idc);
         $p = Playlist::find($idp);
-        if($p == false || $p->user_id != Auth::id())
+        if($p == false || $chanson == false || $p->user_id != Auth::id()){
             abort(403)->with('toastr', ['statut' => 'error', 'message' => 'Erreur lors de la suppression'] );
+        }
         $p->chansons()->detach($idc);
-        return back()->with('toastr', ['statut' => 'success', 'message' => 'Supprimé de la playlist '.$p->nom.' avec succés'] );
+      return redirect($url)->with('toastr', ['statut' => 'success', 'message' => 'Suprimé de  la playlist '.$p->nom.' avec succés'] );
+    }
+    public function Like($idc){
+        $c = Chanson::find($idc);
+
+        $c->likeToggle();
+            
+      
+        return $c->likesCount;
+    }
+    public function DisLike($idc){
+        $c = Chanson::find($idc);
+
+        $c->dislikeToggle();
+        
+        //var_dump($c);
+        //die();
+        return $c->dislikesCount;
     }
     
     public function RemoveSong($idc){

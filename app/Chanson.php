@@ -2,12 +2,18 @@
 
 namespace App;
 
+
 use Illuminate\Database\Eloquent\Model;
+
 use Laravelista\Comments\Commentable;
 
-class Chanson extends Model  
+use Cog\Likeable\Contracts\Likeable as LikeableContract;
+use Cog\Likeable\Traits\Likeable;
+
+class Chanson extends Model implements LikeableContract
 {
     use Commentable;
+    use Likeable;
     
     protected $table = 'chanson';
 
@@ -26,10 +32,6 @@ class Chanson extends Model
         return $exists;
     }
 
-
-    public function likes(){
-        return $this ->hasMany('App\like');
-    }
     
     public function playlists() {
         return $this->belongsToMany('App\Playlist', 'contient', 'chanson_id', 'playlist_id');
