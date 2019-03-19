@@ -15,10 +15,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="/playlistview">Playlist</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/creerplaylistview">Cree une playlist</a>
-            </li>
-            <li class="nav-link"> Bonjour {{ Auth::user()->name }}</li>
+            <li class="nav-link">{{ Auth::user()->name }}</li>
             <li class="nav-link"><a href="{{ route('logout') }}"
                    onclick="event.preventDefault();
                document.getElementById('logout-form').submit();">

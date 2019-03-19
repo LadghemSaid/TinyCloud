@@ -1,5 +1,14 @@
 @extends('layouts.app')
 
+@section('sidebarLeft')
+<form class="padding" action="/creerplaylist" method="POST">
+<h3>Créer une playlist</h3>
+    <input type="text" name="nom" placeholder="Nom de la playlist" class="form-control margin" />
+
+    <button type="submit" class="btn btnCyan margin">Créer</button>
+    {{csrf_field()}}
+</form> 
+@endsection
 @section('content')
 <div class="feed col-12">
     @foreach($playlist as $p)

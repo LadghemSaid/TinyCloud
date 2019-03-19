@@ -16,6 +16,22 @@
   padding: 2rem;
 }
 
+.margin {
+  margin: 1rem;
+}
+
+.mediumMargin {
+  margin: 1.5rem;
+}
+
+.bigMargin {
+  margin: 2rem;
+}
+
+.bigMarginHeight {
+  margin: 2rem 0 2rem 0;
+}
+
 .container {
   width: 70%;
   max-width: none;
@@ -52,7 +68,7 @@
   z-index: 0.5;
 }
 
-.sidebar-nav {
+.sidebar-nav, .sidebar form {
   width: 100%;
   height: 100%;
   display: flex;
@@ -61,7 +77,11 @@
   align-items: center;
 }
 
-.sidebar-nav h1, .sidebar-nav h2, .sidebar-nav h3 {
+.sidebar-nav p, .sidebar form p {
+  color: white;
+}
+
+.sidebar-nav h1, .sidebar-nav h2, .sidebar-nav h3, .sidebar form h1, .sidebar form h2, .sidebar form h3 {
   color: #4AF8FF;
 }
 
@@ -114,10 +134,10 @@
 .feed .playlists .card {
   position: relative;
   display: inline-block;
-  margin: 1rem 0 0 1rem;
+  margin: 1rem 0 1rem 0;
   flex-grow: 1;
   max-width: 50%;
-  width: calc(100% * (1/3) - $gap -$gap);
+  width: calc(100% * (1/3) - 2rem);
 }
 
 .feed .playlists .card:after {
@@ -139,11 +159,12 @@
 
 .feed .sounds .card {
   display: inline-block;
-  margin: 1rem 0 0 1rem;
+  margin: 0 1rem 0 1rem;
   flex-grow: 1;
   max-width: 50%;
-  width: calc(100% * (1/3) - $gap -$gap);
+  width: calc(100% * (1/3) - 2rem);
   /*faire des carrés parfait responsive*/
+  overflow-y: hidden;
 }
 
 .feed .sounds .card:after {
@@ -158,8 +179,20 @@
   height: 100%;
 }
 
-.feed .sounds .card .dropdown {
-  text-align: center;
+.feed .sounds .card:hover .card-body {
+  top: 0px;
+  margin-top: 0px;
+  border-radius: 0px;
+  background-color: rgba(74, 249, 255, 0.733);
+}
+
+.feed .sounds .card .card-body {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  transition: all ease-in-out 0.5s;
+  overflow-x: hidden;
 }
 
 .feed .sounds .card .card-body h1, .feed .sounds .card .card-body h2, .feed .sounds .card .card-body h3, .feed .sounds .card .card-body h4, .feed .sounds .card .card-body h5, .feed .sounds .card .card-body h6 {
@@ -170,14 +203,29 @@
   margin: 1rem;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
+}
+
+.feed .sounds .card .card-buttons a {
+  margin: 1rem;
+}
+
+.feed .sounds .card .dropdown {
+  text-align: center;
+}
+
+.feed .sounds .card a, .feed .sounds .card p, .feed .sounds .card h1, .feed .sounds .card h2, .feed .sounds .card h3, .feed .sounds .card h4, .feed .sounds .card h5, .feed .sounds .card h6 {
+  color: #3D013C;
 }
 
 .feed .endFeed {
   height: 6vh;
 }
 
-/*login*/
+.userProfile h1 {
+  text-align: center;
+}
+
 div,
 p,
 a,

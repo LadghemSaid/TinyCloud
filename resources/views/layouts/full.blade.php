@@ -21,7 +21,22 @@
 <body>
 
 @include('include.header')
-@include('include.sidebar')
+
+<div class=" sidebar sidebar-left shadow">
+        <div class="sidebar-nav">
+            {{-- <h3></span> Suggestion</h3>
+            <ul>
+                <li>
+                    <p>Elouan Salmon</p>
+                    <a href="#" class="btn btnCyan">Suivre</a>
+                </li>
+            </ul> --}}
+            @yield('sidebarLeft')
+        </div>
+    </div>
+    
+    <div class=" sidebar sidebar-right shadow">
+    </div>
 
 <div class="main container">
     <div class="row">
@@ -53,17 +68,28 @@
 
 <!-- Scripts -->
 
-<script src="{{ secure_asset('js/jquery.js') }}"></script>
-<script src="{{ secure_asset('js/jquery.pjax.js') }}"></script>
-<!--<script src="{{ asset('js/app.js') }}"></script>-->
-<script src="{{ secure_asset('js/main.js') }}"></script>
+<script src="{{ asset('js/jquery.js') }}"></script>
+<script src="{{ asset('js/jquery.pjax.js') }}"></script>
+<script src="{{ asset('js/main.js') }}"></script>
 
-<script src="{{ secure_asset('js/player.js') }}"></script>
-<script src="{{ secure_asset('js/toastr.min.js') }}"></script>
+<script src="{{ asset('js/player.js') }}"></script>
+<script src="{{ asset('js/toastr.min.js') }}"></script>
 
 {{-- import de glide --}}
 
 <script src="{{ asset('js/glide.js') }}"></script>
+
+{{-- import de howler --}}
+<script src="{{ asset('js/howler.js') }}"></script>
+
+<script>
+var sound = new Howl({
+  src: ['sound.mp3']
+});
+
+sound.play();
+
+</script>
 
 
 

@@ -1,26 +1,26 @@
 @extends('layouts.app')
+@section('sidebarLeft')
+<h3><span class="icon-user"></span>    Abonnements</h3>
+<p>Il suit {{$utilisateur->jelesSuit->count()}} personne(s)</p>
+<p>Suivi par {{$utilisateur->ilsMeSuivent->count()}} personne(s)</p>
 
-@section('content')
-    <h1>Home page de {{$utilisateur->name}}</h1>
-    <br/>
-    Il suit {{$utilisateur->jelesSuit->count()}} personne(s)
-    <br/>
-    Suivi par {{$utilisateur->ilsMeSuivent->count()}} personne(s)
-    @auth
-
-
-        @if(Auth::id() != $utilisateur->id)
-
-            @if($utilisateur->ilsMeSuivent->contains(Auth::id()))
-                <a href="/suivre/{{$utilisateur->id}}" data-pjax-toggle>[Arréter de suivre]</a>
-                @else
-                <a href="/suivre/{{$utilisateur->id}}" data-pjax-toggle>[Suivre]</a>
-            @endif
+@auth
+    @if(Auth::id() != $utilisateur->id)
+        @if($utilisateur->ilsMeSuivent->contains(Auth::id()))
+            <a class="btn btnCyan" href="/suivre/{{$utilisateur->id}}" data-pjax-toggle>Arréter de suivre</a>
+            @else
+            <a class="btn btnCyan" href="/suivre/{{$utilisateur->id}}" data-pjax-toggle>Suivre</a>
         @endif
+
+    @endif
+@endsection
+@section('content')
+<div class="col-12 userProfile">
+<h1>{{$utilisateur->name}}</h1>
     @endauth
-    <br/>
         @if($utilisateur->chansons)
             <h2>Ses compositions</h2>
             @include("_chansons", ["chansons" => $utilisateur->chansons])
         @endif
+</div>
 @endsection

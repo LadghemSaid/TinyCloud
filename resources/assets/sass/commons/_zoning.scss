@@ -13,6 +13,23 @@
     padding: $bigGap;
 }
 
+//margin
+
+.margin {
+    margin: $gap;
+}
+
+.mediumMargin {
+    margin: $mediumGap;
+}
+
+.bigMargin {
+    margin: $bigGap;
+}
+
+.bigMarginHeight{
+    margin: $bigGap  0 $bigGap 0;
+}
 
 // Bootstrap 
 
@@ -55,7 +72,11 @@ width: $sidebarWidth;
 height: 88vh;
 z-index: 0.5;
 
-    &-nav{
+
+    &-nav, form{
+        p{
+            color: $white;
+        }
         h1,h2,h3{
             color: $cyan;
         }
@@ -115,10 +136,10 @@ height: $footerFixHeight;
         .card{
             position: relative;
             display: inline-block;
-            margin: $gap 0 0 $gap;
+            margin: $gap 0 $gap 0;
             flex-grow: 1;
             max-width: 50%;
-            width: calc(100% * (1/3) - $gap -$gap);
+            width: calc(100% * (1/3) - 2rem);
             &:after {
                 content: "";
                 display: block;
@@ -137,10 +158,10 @@ height: $footerFixHeight;
         flex-direction: row;
         .card{
             display: inline-block;
-            margin: $gap 0 0 $gap;
+            margin: 0 $gap 0 $gap;
             flex-grow: 1;
             max-width: 50%;
-            width: calc(100% * (1/3) - $gap -$gap);
+            width: calc(100% * (1/3) - 2rem);
             /*faire des carrés parfait responsive*/
             &:after {
                 content: "";
@@ -152,12 +173,23 @@ height: $footerFixHeight;
             width: 100%;
             height: 100%;
             }
+            //apparition des infos
+            overflow-y: hidden;
+            &:hover .card-body{
+                top: 0px;
+                margin-top:0px;
+                border-radius: 0px;  
 
-            .dropdown{
-                text-align: center;
+                background-color: rgba(74, 249, 255, 0.733);
             }
 
             .card-body{
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                transition: all ease-in-out 0.5s;
+                overflow-x: hidden;
                 
                 h1,h2,h3,h4,h5,h6{
                     text-align: center;
@@ -168,10 +200,20 @@ height: $footerFixHeight;
                 margin: $gap;
                 display: flex;
                 flex-direction: row;
-                justify-content: space-around;
+                justify-content: center;
+                a{
+                    margin: $gap;
+                }
 
             }
-            
+
+            .dropdown{
+                text-align:center;
+            }
+
+            a,p,h1,h2,h3,h4,h5,h6{
+                color: $purpleDark;
+            }
         }
     }
     .endFeed{
@@ -179,12 +221,11 @@ height: $footerFixHeight;
     }
 }
 
-/*login*/
 
-.login{
-
-}
-.register{
+.userProfile{
+    h1{
+        text-align: center;
+    }
 
 }
 
