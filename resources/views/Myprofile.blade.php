@@ -13,9 +13,9 @@
             @if(Auth::id() != $utilisateur->id)
     
                 @if($utilisateur->ilsMeSuivent->contains(Auth::id()))
-                    <a href="/suivre/{{$utilisateur->id}}">[Arréter de suivre]</a>
+                    <a href="{{url('/')}}/suivre/{{$utilisateur->id}}">[Arréter de suivre]</a>
                 @else
-                    <a href="/suivre/{{$utilisateur->id}}">[Suivre]</a>
+                    <a href="{{url('/')}}/suivre/{{$utilisateur->id}}">[Suivre]</a>
                 @endif
             @endif
         @endauth
