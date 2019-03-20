@@ -4,14 +4,14 @@ $(document).ready(function(){
     //dropdown activation
    $(".dropdown-toggle").dropdown();
  
- /*
+ 
     $(document).pjax('[data-pjax] a, a[data-pjax]', '#pjax-container');
     $(document).pjax('[data-pjax-toggle] a, a[data-pjax-toggle]', '#pjax-container',{push : false});
     $(document).on('submit', 'form[data-pjax]', function(event) {
         $.pjax.submit(event, '#pjax-container')
     })
 
-*/
+
     $("#Ajaxquery").on('input',function(e){
     console.log(e.target.value);
     if($.support.pjax){
@@ -145,25 +145,7 @@ $(document).ready(function(){
 
     });
 
-    $("#testajax").click(function(e){
-        e.preventDefault();
-
-        $.ajax({
-            type:"GET",
-            url:'/testajax',
-            data :{
-                login: 'Gilles',
-                mdp:'aud123',
-            },
-            success: function(data, textStatus,jqXHR){
-                $("#aremplir").html(data);
-            },
-            error: function(jqHXR, textStatus, errorThrown){
-
-            }
-
-        })
-    })
+   
 
     toastr.options = {
         "closeButton": false,

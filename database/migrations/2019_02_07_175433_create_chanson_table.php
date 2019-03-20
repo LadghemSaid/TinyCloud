@@ -18,6 +18,7 @@ class CreateChansonTable extends Migration
             $table->string('nom',255);
             $table->string("fichier", 255);
             $table->string("style", 255);
+            $table->string("cover", 255);
             $table->integer("utilisateur_id");
             $table->timestamps();
         });

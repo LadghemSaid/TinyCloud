@@ -253,6 +253,7 @@ class MonControleur extends Controller
             $c->nom = $request->input("nom");
             $c->style = $request->input("style");
             $c->utilisateur_id = Auth::id();
+            $c->
             
             $c->fichier = $request->file("chanson")->store("public/chansons/" .Auth::id());
             $ext = $request->file("chanson")->extension();
@@ -267,9 +268,7 @@ class MonControleur extends Controller
         return redirect("/")->with('toastr', ['statut' => 'success', 'message' => 'Chanson ajoutez avec succés'] );
 
     }
-    public function testajax(){
-        return redirect('/recherche/ut');
-    }
+
 
 
 

@@ -26,10 +26,11 @@ Route::get('/like/{idc}', 'MonControleur@Like')->middleware('auth')->where("idc"
 Route::get('/dislike/{idc}', 'MonControleur@DisLike')->middleware('auth')->where("idc","[0-9]+");
 
 
+//Ajax
 Route::get('/autocomplete/{slug}', 'MonControleur@AutoComplete')->middleware('auth');
 Route::get('/getartist/{slug}', 'MonControleur@GetArtist')->middleware('auth');
 
-Route::get("/testajax","MonControleur@testajax");
+
 
 
 Route::post('/creerplaylist', 'MonControleur@CreePlaylist')->middleware('auth');

@@ -10,12 +10,15 @@
         <ul class="navbar-nav mr-auto">
             @auth
             <li class="nav-item">
-                <a class="nav-link" href="/">Feeds</a>
+                <a class="nav-link" href="{{url('/')}}" data-pjax>Feeds</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/playlistview">Playlist</a>
+                <a class="nav-link" href="{{url('/')}}/playlistview" data-pjax>Playlist</a>
             </li>
-            <li class="nav-link">{{ Auth::user()->name }}</li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('/')}}/nouvelle" data-pjax>Ajoutez une musique</a>
+            </li>
+            <li class="nav-link"><a href="{{url('/')}}/utilisateur/{{Auth::user()->id}}" data-pjax>{{ Auth::user()->name }}</a></li>
             <li class="nav-link"><a href="{{ route('logout') }}"
                    onclick="event.preventDefault();
                document.getElementById('logout-form').submit();">
@@ -40,7 +43,7 @@
         </ul>
         <form id="search" class=" form-inline my-2 my-lg-0">
             <input type="search" class=" form-control mr-sm-2" name="search" required placeholder="Votre recherche"/>
-            <button class="btn btnCyan my-2 my-sm-0 btn-ci" type="submit">Rechercher <span class="icon-search"></span></button>
+            <button class="btn btnCyan my-2 my-sm-0 btn-ci" type="submit" data-pjax>Rechercher <span class="icon-search"></span></button>
         </form>
       
     </div>
