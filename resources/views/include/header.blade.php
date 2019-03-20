@@ -28,19 +28,19 @@
             
             @guest
             <li class="nav-item active">
-                <a class="nav-link" href="/">Feed<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/">Accueil<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-link">
-                <a href="{{ route('login') }}">Login</a>
+                <a href="{{ route('login') }}">Connection</a>
             </li>
             <li class="nav-link">
-                <a href="{{ route('register') }}">Register</a>
+                <a href="{{ route('register') }}">Inscription</a>
             </li>
             @endguest
         </ul>
         <form id="search" class=" form-inline my-2 my-lg-0">
             <input type="search" class=" form-control mr-sm-2" name="search" required placeholder="Votre recherche"/>
-            <button class="btn btnCyan my-2 my-sm-0 btn-ci" type="submit">Search <span class="icon-search"></span></button>
+            <button class="btn btnCyan my-2 my-sm-0 btn-ci" type="submit">Rechercher <span class="icon-search"></span></button>
         </form>
       
     </div>

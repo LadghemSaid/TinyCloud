@@ -34,6 +34,7 @@
         "howler": "^2.1.1",
         "laravel-echo": "^1.5.3",
         "laravel-elixir": "^6.0.0-18",
-        "pusher-js": "^4.4.0"
+        "pusher-js": "^4.4.0",
+        "vanilla-tilt": "^1.6.1"
     }
 }
