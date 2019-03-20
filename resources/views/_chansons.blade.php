@@ -7,10 +7,13 @@
             <a href="{{url('/')}}/removesong/{{$c->id}}" class="btn btn-danger btn-sm" data-pjax>X</a>
             @endif
             <div>
-                <img class="card-img-top" src="{{asset('img/'.$c->id.'.jpg')}}" alt="Card image cap">
+                <img class="card-img-top" src="{{secure_asset($c->cover)}}" alt="Card image cap">
                 <div class="card-body">
                     <h5>
                         <a href="song/{{$c->id}}" class="chanson" data-file="{{$c->fichier}}">{{$c->nom}}</a>
+                    </h5>
+                    <h5>
+                        <a href="song/{{$c->id}}" class="chanson" data-file="{{$c->fichier}}">{{$c->titre}}</a>
                     </h5>
                     <br>
                     <h6 class="text-muted">

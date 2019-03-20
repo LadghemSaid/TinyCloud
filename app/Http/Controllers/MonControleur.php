@@ -236,7 +236,7 @@ class MonControleur extends Controller
     
     public function Creer(Request $request){
         $validator=Validator::make($request->all(),[
-            'nom' => 'required|min:6'
+            'titre' => 'required|min:3',
 
         ]);
         if ($validator->fails()) {
@@ -250,10 +250,16 @@ class MonControleur extends Controller
 
         if($request->hasFile("chanson") && $request->file("chanson")->isValid()){
             $c = new Chanson();
-            $c->nom = $request->input("nom");
+            if($request->input("nom")==""){
+                $username = User::find(Auth::id())->name; 
+                $c->nom = $username;
+            }else{
+                $c->nom = $request->input("nom");
+            }
+            $c->titre = $request->input("titre");
             $c->style = $request->input("style");
             $c->utilisateur_id = Auth::id();
-            $c->
+            $c->cover = $request->input("cover");
             
             $c->fichier = $request->file("chanson")->store("public/chansons/" .Auth::id());
             $ext = $request->file("chanson")->extension();

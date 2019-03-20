@@ -49,6 +49,8 @@ $(document).ready(function(){
                 console.log(data);
                
                 $("#artistimg").attr("src",data[1]);
+                console.log( $("#hidden_cover"));
+                $("#hidden_cover").attr("value",data[1]);
             },
             error: function(jqHXR, textStatus, errorThrown){
 
@@ -59,6 +61,7 @@ $(document).ready(function(){
         }
     }
     });
+   
     
     //Like/dislike
         $(".liked").on("click",function(e){
