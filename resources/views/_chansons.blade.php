@@ -3,23 +3,26 @@
         @foreach($chansons as $c)
 
         <div class="card">
-            @if($c->utilisateur_id == Auth::user()->id)
-            <a href="{{url('/')}}/removesong/{{$c->id}}" class="btn btn-danger btn-sm" data-pjax>X</a>
-            @endif
+            @auth
+                    @if($c->utilisateur_id == Auth::user()->id)
+                        <a href="{{url('/')}}/removesong/{{$c->id}}" class="btn btn-danger btn-sm" style="position:absolute!important;z-index:15" data-pjax>X</a>
+                    @endif
+            @endauth
             <div>
+           
                 <img class="card-img-top" src="{{secure_asset($c->cover)}}" alt="Card image cap">
                 <div class="card-body">
                     <h5>
-                        <a href="song/{{$c->id}}" class="chanson" data-file="{{$c->fichier}}">{{$c->nom}}</a>
+                        <a href="song/{{$c->id}}" class="chanson" data-file="{{$c->fichier}}"  data-pjax>{{$c->nom}}</a>
                     </h5>
                     <h5>
-                        <a href="song/{{$c->id}}" class="chanson" data-file="{{$c->fichier}}">{{$c->titre}}</a>
+                        <a href="song/{{$c->id}}" class="chanson" data-file="{{$c->fichier}}"  data-pjax>{{$c->titre}}</a>
                     </h5>
                     <br>
                     <h6 class="text-muted">
-                        <a href="/utilisateur/{{$c->utilisateur->id}}">{{$c->utilisateur->name}}</a> 
+                        <a href="/utilisateur/{{$c->utilisateur->id}}" data-pjax>Ajouté par :{{$c->utilisateur->name}}</a> 
                         @if($c->utilisateur->created_at != null)
-                        <i>Le {{$c->utilisateur->created_at}}</i>
+                        <br/><i>Le : {{$c->utilisateur->created_at}}</i>
                         @endif
                     </h6>
                     <br>
@@ -31,15 +34,15 @@
                                 @foreach(Auth::user()->playlists as $p)
                                 
                                     @if(!$c->BelongToPlaylist($p->id,$c->id))
-                                        <a class="dropdown-item btn btnPurple dropdown-item" href="/addtoplaylist/{{$p->id}}/{{$c->id}}">{{$p->nom}}</a>
+                                        <a class="dropdown-item btn btnPurple dropdown-item" href="/addtoplaylist/{{$p->id}}/{{$c->id}}" data-pjax>{{$p->nom}}</a>
                                     @else
                                         
                                         <span class="btn-group">
-                                            <button class="dropdown-item btn btnPurple " disabled>{{$p->nom}}</button><a class=" dropdown-itembtn btn-danger btn-mini" href="removefromplaylist/{{$p->id}}/{{$c->id}}">X</a><br />
+                                            <button class="dropdown-item btn btnPurple " disabled>{{$p->nom}}</button><a class=" dropdown-itembtn btn-danger btn-mini" href="removefromplaylist/{{$p->id}}/{{$c->id}}" data-pjax>X</a><br />
                                         </span> 
                                     @endif 
                                 @endforeach
-                                <a class="button btn btnPurple" href="/creerplaylistview">Crée une playlist</a>
+                                <a class="button btn btnPurple" href="/playlistview" data-pjax>Crée une playlist</a>
                             </div>
                         </div>
 
@@ -51,11 +54,11 @@
                     @if($c->utilisateur_id !== Auth::user()->id)
                         <div class="card-buttons">
                             <form method="get" data-pjax>
-                                <a href="#" class="btn btnPurpleDark liked"  data-pjax data-idc="{{$c->id}}">Like <span class="icon-thumbs-o-up"></span> <span id="countLike{{$c->id}}" >{{$c->likesCount}}</span></a>
+                                <a  class="btn btnPurpleDark liked"  data-pjax data-idc="{{$c->id}}">Like <span class="icon-thumbs-o-up"></span> <span id="countLike{{$c->id}}" >{{$c->likesCount}}</span></a>
                             </form>
         
                             <form method="get" data-pjax>
-                                <a href="#" class="btn btnPurpleDark disliked"  data-pjax data-idc="{{$c->id}}">Dislike <span class="icon-thumbs-o-down"></span> <span id="countDislike{{$c->id}}" >{{$c->dislikesCount}}</span></a>
+                                <a class="btn btnPurpleDark disliked"  data-pjax data-idc="{{$c->id}}">Dislike <span class="icon-thumbs-o-down"></span> <span id="countDislike{{$c->id}}" >{{$c->dislikesCount}}</span></a>
                             </form>
                         </div>
                     @endif

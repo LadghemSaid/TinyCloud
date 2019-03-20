@@ -3,8 +3,7 @@
 $(document).ready(function(){
     //dropdown activation
    $(".dropdown-toggle").dropdown();
- 
- 
+   
     $(document).pjax('[data-pjax] a, a[data-pjax]', '#pjax-container');
     $(document).pjax('[data-pjax-toggle] a, a[data-pjax-toggle]', '#pjax-container',{push : false});
     $(document).on('submit', 'form[data-pjax]', function(event) {
@@ -140,6 +139,7 @@ $(document).ready(function(){
 
     $(".chanson").click(function(e){
         //e.preventDefault();
+        //alert("play");
         let audio =$("#audio");
         let f =$(this).attr('data-file');
        

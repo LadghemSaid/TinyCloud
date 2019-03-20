@@ -60,7 +60,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-12 shadow-lg">
-                                <audio id="audio" class="lecteur-son" controls data-titre="Groove" data-auteur="Auteur inconnu" data-illustration="TR-153.jpg">
+                                <audio id="audio" class="lecteur-son chanson" controls data-titre="Groove" data-auteur="Auteur inconnu" data-illustration="TR-153.jpg">
                                 <source src="" type="audio/mp3">
                             </audio>
                             </div>
