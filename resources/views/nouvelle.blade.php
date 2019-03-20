@@ -25,9 +25,10 @@
                                 <select type="text" name="style"  value="{{old('nom')}}" multiple  class="chosen-select"/>
                 
                                 <option value="rap">rap</option>
-                                <option value="rap">rap</option>
-                                <option value="rap">rap</option>
-                                <option value="rap">rap</option>
+                                <option value="rap">R&B</option>
+                                <option value="rap">Rock</option>
+                                <option value="rap">Jazz</option> 
+                                <option value="rap">New wave</option>
                             
                             </select>
                             </div>
