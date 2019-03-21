@@ -131,3 +131,11 @@
 [17-Mar-2019 18:36:36 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65028096 bytes) in /home/ubuntu/workspace/app/Chanson.php on line 21
 [19-Mar-2019 15:52:58 UTC] PHP Fatal error:  Cannot redeclare App\Chanson::utilisateur() in /home/ubuntu/workspace/app/Chanson.php on line 17
 [19-Mar-2019 19:40:50 UTC] PHP Fatal error:  Cannot use Illuminate\Database\Eloquent\Model as Model because the name is already in use in /home/ubuntu/workspace/app/Chanson.php on line 12
+[21-Mar-2019 13:52:35 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 90193920 bytes) in /home/ubuntu/workspace/app/Playlist.php on line 13
+[21-Mar-2019 13:52:38 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 90193920 bytes) in /home/ubuntu/workspace/app/Playlist.php on line 13
+[21-Mar-2019 13:52:44 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 90193920 bytes) in /home/ubuntu/workspace/app/Playlist.php on line 13
+[21-Mar-2019 13:53:02 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 90193920 bytes) in /home/ubuntu/workspace/app/Playlist.php on line 14
+[21-Mar-2019 13:53:04 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 90193920 bytes) in /home/ubuntu/workspace/app/Playlist.php on line 14
+[21-Mar-2019 13:53:28 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 90193920 bytes) in /home/ubuntu/workspace/app/Playlist.php on line 14
+[21-Mar-2019 13:54:18 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 90193920 bytes) in /home/ubuntu/workspace/app/Playlist.php on line 14
+[21-Mar-2019 13:55:08 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 90193920 bytes) in /home/ubuntu/workspace/app/Playlist.php on line 14

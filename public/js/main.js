@@ -4,7 +4,7 @@ $(document).ready(function(){
     //dropdown activation
    $(".dropdown-toggle").dropdown();
    
-    $(document).pjax('[data-pjax] a, a[data-pjax]', '#pjax-container');
+    $(document).pjax('[data-pjax] a, a[data-pjax]', '#pjax-container','[data-pjax]');
     $(document).pjax('[data-pjax-toggle] a, a[data-pjax-toggle]', '#pjax-container',{push : false});
     $(document).on('submit', 'form[data-pjax]', function(event) {
         $.pjax.submit(event, '#pjax-container')
