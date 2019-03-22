@@ -49,7 +49,8 @@
     </div>
 
     <div class="main container">
-        <div class="row">
+       
+        <div class="row" id="pjax-container">
             @yield('content')
         </div>
     </div>
@@ -62,8 +63,8 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-12 shadow-lg">
-                                <audio id="audio" class="lecteur-son chanson" controls data-titre="" data-auteur="" data-illustration="">
-                                <source src="" type="audio/mp3">
+                                <audio id="audio" class="lecteur-son" controls data-titre="" data-auteur="" data-illustration="">
+                                <source src="" type="audio/mpeg">
                             </audio>
                             </div>
                         </div>

@@ -14,11 +14,15 @@
                     <img class="card-img-top" src="{{secure_asset($c->cover)}}" alt="Card image cap">
                     <div class="card-body">
                         <h5>
-                            <a href="song/{{$c->id}}" class="chanson" data-file="{{$c->fichier}}"  data-pjax>{{$c->nom}}</a>
+                            <a href="song/{{$c->id}}" class=""  data-pjax>{{$c->nom}}</a>
                         </h5>
                         <h5>
-                            <a href="song/{{$c->id}}" class="chanson" data-file="{{$c->fichier}}"  data-pjax>{{$c->titre}}</a>
+                            <a href="song/{{$c->id}}" class=""  data-pjax>{{$c->titre}}</a>
                         </h5>
+                        <h3>
+                            <a  class="round-button chansonPlay" data-file="{{secure_asset($c->fichier)}}" data-played="notPlaying" data-firstime="true" ><i class="fa fa-play fa-2x"></i></a>
+                            <a  class="round-button chansonPause" data-file="{{secure_asset($c->fichier)}}" data-played="notPlaying" data-firstime="true" ><i class="fa fa-pause fa-2x"></i></a>
+                        </h3>
                         <br>
                         <h6 class="text-muted">
                             <a href="/utilisateur/{{$c->utilisateur->id}}" data-pjax>Ajouté par :{{$c->utilisateur->name}}</a> 
@@ -46,7 +50,7 @@
                                     <a class="button btn btnPurple" href="/playlistview" data-pjax>Crée une playlist</a>
                                 </div>
                             </div>
-        
+                            
                         @if($c->utilisateur_id !== Auth::user()->id)
                             <div class="card-buttons">
                                 <form method="get" data-pjax>
