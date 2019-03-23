@@ -3,15 +3,14 @@
 $(document).ready(function(){
     //dropdown activation
    $(".dropdown-toggle").dropdown();
- 
- /*
+   
     $(document).pjax('[data-pjax] a, a[data-pjax]', '#pjax-container');
     $(document).pjax('[data-pjax-toggle] a, a[data-pjax-toggle]', '#pjax-container',{push : false});
     $(document).on('submit', 'form[data-pjax]', function(event) {
         $.pjax.submit(event, '#pjax-container')
     })
 
-*/
+
     $("#Ajaxquery").on('input',function(e){
     console.log(e.target.value);
     if($.support.pjax){
@@ -49,6 +48,8 @@ $(document).ready(function(){
                 console.log(data);
                
                 $("#artistimg").attr("src",data[1]);
+                console.log( $("#hidden_cover"));
+                $("#hidden_cover").attr("value",data[1]);
             },
             error: function(jqHXR, textStatus, errorThrown){
 
@@ -59,6 +60,7 @@ $(document).ready(function(){
         }
     }
     });
+   
     
     //Like/dislike
         $(".liked").on("click",function(e){
@@ -137,6 +139,7 @@ $(document).ready(function(){
 
     $(".chanson").click(function(e){
         //e.preventDefault();
+        //alert("play");
         let audio =$("#audio");
         let f =$(this).attr('data-file');
        
@@ -145,25 +148,7 @@ $(document).ready(function(){
 
     });
 
-    $("#testajax").click(function(e){
-        e.preventDefault();
-
-        $.ajax({
-            type:"GET",
-            url:'/testajax',
-            data :{
-                login: 'Gilles',
-                mdp:'aud123',
-            },
-            success: function(data, textStatus,jqXHR){
-                $("#aremplir").html(data);
-            },
-            error: function(jqHXR, textStatus, errorThrown){
-
-            }
-
-        })
-    })
+   
 
     toastr.options = {
         "closeButton": false,

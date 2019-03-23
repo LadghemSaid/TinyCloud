@@ -16,8 +16,10 @@ class CreateChansonTable extends Migration
         Schema::create('chanson', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nom',255);
+            $table->string('titre',255);
             $table->string("fichier", 255);
             $table->string("style", 255);
+            $table->string("cover", 255)->nullable()->default("https://gwiguyana.gy/sites/default/files/default_images/placeholder.png");;
             $table->integer("utilisateur_id");
             $table->timestamps();
         });
