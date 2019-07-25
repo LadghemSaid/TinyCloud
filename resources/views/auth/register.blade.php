@@ -25,6 +25,23 @@
                             </div>
                         </div>
 
+                        <div class="form-group-row">
+                            <col-md-6>
+                            <select class="form-control {{ $errors->has('sexe') ? ' is-invalid' : '' }}" id="sexe">
+                                <option value="homme">Homme</option>
+                                <option value="femme">Femme</option>
+                                <option value="autre">Autre</option>
+                            </select>
+
+                            
+                            @if ($errors->has('sexe'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('sexe') }}</strong>
+                                </span>
+                            @endif
+
+                            </col-md-6>
+                        </div>                        
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
