@@ -146,7 +146,7 @@ height: $footerFixHeight;
             &:after {
                 content: ""; 
                 display: block;
-                padding-bottom: 100%;
+                margin-bottom: 100%;
               }
               div:first-child{
                 position: absolute;
@@ -169,7 +169,7 @@ height: $footerFixHeight;
             &:after {
                 content: "";
                 display: block;
-                padding-bottom: 100%;
+                //padding-bottom: 100%; 
               }
             div:first-child{
             position: absolute;
@@ -236,4 +236,7 @@ height: $footerFixHeight;
     .form-control{
         width: 50%;
     }
+}
+.playlist{
+    margin-bottom:150px;
 }

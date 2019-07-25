@@ -1,5 +1,6 @@
 <div class=" sidebar sidebar-left shadow">
     <div class="sidebar-nav">
+        
         <h3><span class="icon-user"></span> Suggestion</h3>
         <ul>
             <li>

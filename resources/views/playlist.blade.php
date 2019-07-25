@@ -15,9 +15,15 @@
     @foreach($playlist as $p)
     <div class="playlist col-12">
         <h2><span class="icon-music"></span> Playlist : {{$p->nom}} <a href="{{url('/')}}/removeplaylist/{{$p->id}}" class="btn btn-danger btn-sm" data-pjax>X</a></h2>
-        @include("_chansons", ["chansons"=>$p->chansons])
-        @endforeach
+        @if(!$p->haveMusic($p->id))
+            <h4>Pas de chansons dans cette playlist</h4>
+        @else
+            @include("_chansons", ["chansons"=>$p->chansons])
+        
+        @endif
+        
     </div>
+        @endforeach
 
 </div>
 @endsection

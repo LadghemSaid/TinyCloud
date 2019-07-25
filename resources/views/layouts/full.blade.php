@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="{{secure_asset('css/toastr.css')}}">
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.css">
@@ -38,7 +38,9 @@
                     <p>Elouan Salmon</p>
                     <a href="#" class="btn btnCyan">Suivre</a>
                 </li>
-            </ul> --}} @yield('sidebarLeft')
+            </ul> --}} 
+            
+            @yield('sidebarLeft')
         </div>
     </div>
 
@@ -47,7 +49,8 @@
     </div>
 
     <div class="main container">
-        <div class="row">
+       
+        <div class="row" id="pjax-container">
             @yield('content')
         </div>
     </div>
@@ -60,8 +63,8 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-12 shadow-lg">
-                                <audio id="audio" class="lecteur-son chanson" controls data-titre="Groove" data-auteur="Auteur inconnu" data-illustration="TR-153.jpg">
-                                <source src="" type="audio/mp3">
+                                <audio id="audio" class="lecteur-son" controls data-titre="" data-auteur="" data-illustration="">
+                                <source src="" type="audio/mpeg">
                             </audio>
                             </div>
                         </div>

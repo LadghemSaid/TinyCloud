@@ -143,7 +143,7 @@
 .feed .playlists .card:after {
   content: "";
   display: block;
-  padding-bottom: 100%;
+  margin-bottom: 100%;
 }
 
 .feed .playlists .card div:first-child {
@@ -170,7 +170,6 @@
 .feed .sounds .card:after {
   content: "";
   display: block;
-  padding-bottom: 100%;
 }
 
 .feed .sounds .card div:first-child {
@@ -228,6 +227,10 @@
 
 .nouvelle .form-control {
   width: 50%;
+}
+
+.playlist {
+  margin-bottom: 150px;
 }
 
 div,
