@@ -30,7 +30,7 @@
         "@glidejs/glide": "^3.2.6",
         "bootstrap": "^4.3.1",
         "glide": "^0.2.0",
-        "gulp": "^3.9.1",
+        "gulp": "^4.0.2",
         "howler": "^2.1.1",
         "laravel-echo": "^1.5.3",
         "laravel-elixir": "^6.0.0-18",
